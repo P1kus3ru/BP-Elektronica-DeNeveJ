@@ -1,6 +1,6 @@
-# Bachelorproef toegepaste informatica
+# Bachelorproef Elektronica-ICT
 
-Deze repository bevat LaTeX sjablonen voor gebruik bij het opmaken van je bachelorproef toegepaste informatica:
+Deze repository bevat LaTeX sjablonen voor gebruik bij het opmaken van je bachelorproef Elektronica-ICT:
 
 - [Het onderzoeksvoorstel](./voorstel/)
 - [De bachelorproef zelf](./bachproef/)
@@ -137,5 +137,6 @@ Volgende personen hebben bijgedragen aan deze sjablonen:
 - Niels Corneille
 - Patrick Van Brussel
 - Simon Rondelez
-#   B P - E l e k t r o n i c a - D e N e v e J  
+#   B P - E l e k t r o n i c a - D e N e v e J 
+ 
  
