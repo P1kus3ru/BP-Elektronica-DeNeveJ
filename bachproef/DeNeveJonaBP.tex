@@ -3,7 +3,7 @@
 % Meer info op https://github.com/HoGentTIN/latex-hogent-report
 %===============================================================================
 
-\documentclass[dutch,dit,thesis]{odiseereport}
+\documentclass[dutch,thesis, cbt]{odiseereport}
 
 % TODO:
 % - If necessary, replace the option `dit`' with your own department!
@@ -50,22 +50,31 @@
 %%---------- Document metadata -------------------------------------------------
 % TODO: Replace this with your own information
 \author{Jona De Neve}
-\supervisor{Dhr. T. Vermeulen}
-\cosupervisor{Dhr. J. Scheirs}
+\supervisor{Tim Vermeulen}
+\cosupervisor{Johan Scheirs}
 \title[]%
-    {Traceability van medische kabels aan de hand van kabel tester en MES}
+    {Traceability van (medische) kabels aan de hand van kabel tester en MES}
 \academicyear{\advance\year by -1 \the\year--\advance\year by 1 \the\year}
 \examperiod{2}
-\degreesought{\IfLanguageName{dutch}{Professionele bachelor in de Elektronica-ICT}{Bachelor of Electronics-ICT}}
-\partialthesis{false} %% To display 'in partial fulfilment'
-\institution{Qity\\Oudenaardsesteenweg 256\\9420 Erpe-Mere}
 
+\degreesought{Professionele Bachelor Elektronica-ICT, afstudeerrichting Elektronica}
+\opleiding{Elektronica-ICT, afstudeerrichting Elektronica}   % shorter version for info page
+\partialthesis{false} %% To display 'in partial fulfilment'
+\institution{Qity}
+\institutionstreet{Oudenaardsesteenweg 256}
+\institutionpostal{9420 Erpe-Mere}
+
+
+\campus{Technologiecampus Gent}
+\campusaddress{Gebr. De Smetstraat 1 | 9000 Gent}
+\campusphone{09 265 86 10}
+\campusemail{info@gent.odisee.be}
 %% Add global exceptions to the hyphenation here
 \hyphenation{back-slash}
 
 %% The bibliography (style and settings are  found in hogentthesis.cls)
 \addbibresource{bachproef.bib}            %% Bibliography file
-\addbibresource{../voorstel/voorstel.bib} %% Bibliography research proposal
+%%\addbibresource{../voorstel/voorstel.bib} %% Bibliography research proposal
 \defbibheading{bibempty}{}
 
 %% Prevent empty pages for right-handed chapter starts in twoside mode
@@ -92,6 +101,7 @@
 
 %% Generates title page content
 \maketitle
+\makeinfopage
 \hypersetup{pageanchor=true}
 
 \input{voorwoord}
@@ -148,9 +158,9 @@
 
 \appendix
 
-\chapter{Onderzoeksvoorstel}
+%%\chapter{Onderzoeksvoorstel}
 
-Het onderwerp van deze bachelorproef is gebaseerd op een onderzoeksvoorstel dat vooraf werd beoordeeld door de promotor. Dat voorstel is opgenomen in deze bijlage.
+%%Het onderwerp van deze bachelorproef is gebaseerd op een onderzoeksvoorstel dat vooraf werd beoordeeld door de promotor. Dat voorstel is opgenomen in deze bijlage.
 
 %% TODO: 
 %\section*{Samenvatting}
@@ -158,7 +168,7 @@ Het onderwerp van deze bachelorproef is gebaseerd op een onderzoeksvoorstel dat 
 % Kopieer en plak hier de samenvatting (abstract) van je onderzoeksvoorstel.
 
 % Verwijzing naar het bestand met de inhoud van het onderzoeksvoorstel
-\input{../voorstel/voorstel-inhoud}
+%%\input{../voorstel/voorstel-inhoud}
 
 %%---------- Andere bijlagen --------------------------------------------------
 % TODO: Voeg hier eventuele andere bijlagen toe. Bv. als je deze BP voor de
