@@ -505,7 +505,7 @@
     \@cosupervisor\par
     \fi
     \fi
-    \clearpage
+    %\clearpage
     \thispagestyle{empty}\null\clearpage
 }
 
