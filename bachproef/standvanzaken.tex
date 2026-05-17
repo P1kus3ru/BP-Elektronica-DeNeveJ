@@ -1,5 +1,140 @@
-\chapter{\IfLanguageName{dutch}{Stand van zaken}{State of the art}}%
-\label{ch:stand-van-zaken}
+\chapter{\IfLanguageName{dutch}{Conceptuele Oplossing}{}}%
+\label{ch:conceptuele-oplossing}
+
+\section{\IfLanguageName{dutch}{Qity QMS \protect\& MES}{}}%
+\label{sec:QMS}
+Om het validatie- en documentatieproces te stroomlijnen, heeft Qity een eigen Quality Management System (QMS) ontworpen. Dit systeem is gebaseerd op het Atlassian-ecosysteem en biedt geïntegreerde tools die dubbel werk elimineren \autocite{Qity2025}. Binnen Jira kan bijvoorbeeld een \textit{sprint board} worden bijgehouden, waarbij een ticket direct de status van de bijhorende \textit{branch} in Bitbucket weergeeft. Een andere belangrijke functionaliteit van het QMS is de integratie met Altium 365, waardoor opmerkingen op schema's of PCB-ontwerpen rechtstreeks gekoppeld kunnen worden aan bestaande of nieuwe Jira-tickets.
+
+Naast het QMS biedt Qity ook een Manufacturing Execution System (MES) aan. Dit systeem begeleidt
+de operator stap voor stap door het assemblage- en testproces. Deze gestructureerde aanpak
+minimaliseert menselijke fouten. Bovendien biedt het MES de mogelijkheid om automatiseringsscripts,
+geschreven in Python, aan te roepen vanuit de werkinstructies om processen verder te optimaliseren.
+De combinatie van dit MES met het QMS resulteert in een robuust systeem met volledige
+traceerbaarheid.
+
+\subsection{\IfLanguageName{dutch}{Europese regelgeving: MDR en IVDR}{}}%
+\label{ssec:regelgeving}
+Wanneer kabels worden toegepast in medische toestellen, vallen deze binnen de Europese Unie onder
+de regelgeving van het desbetreffende medische hulpmiddel. De voornaamste regelgevingen zijn:
+
+\begin{itemize}
+    \item \textbf{MDR\autocite{MDR2017}:} De Medical Device Regulation beschrijft de strenge voorwaarden waaraan een product moet voldoen om de CE-markering te mogen dragen, waaronder ook de validatie en het testen van de bijbehorende kabels valt.
+    
+    \item \textbf{IVDR\autocite{IVDR2017}:} Wanneer een toestel gebruikt wordt voor in-vitro toepassingen, moet het tevens voldoen aan de In Vitro Diagnostic Regulation, die analoge eisen stelt voor diagnostische hulpmiddelen.
+\end{itemize}
+
+\subsection{\IfLanguageName{dutch}{Kwaliteitsnormen: ISO 13485 en ISO 9001}{}}%
+\label{ssec:kwaliteitsnormen}
+Het Qity QMS is opgebouwd rond internationale kwaliteitsnormen. Het naleven van deze standaarden
+garandeert niet alleen conformiteit met de Europese wetgeving, maar vereenvoudigt ook de wereldwijde export, aangezien deze normen internationaal breed erkend worden\autocite{Muehendislik2025}.
+
+\begin{itemize}
+    \item \textbf{ISO 13485\autocite{ISO13485}:} Deze norm legt de minimale vereisten vast voor kwaliteitsmanagementsystemen in de medische sector en vormt de ruggengraat van het Qity QMS.
+    
+    \item \textbf{ISO 9001\autocite{ISO9001}:} Ter ondersteuning van ISO 13485 worden aanvullend principes uit deze meer algemene kwaliteitsmanagementnorm toegepast.
+\end{itemize}
+
+\subsection{\IfLanguageName{dutch}{Veiligheidsnormen: IEC 62353 en IEC 61010-1}{}}%
+\label{ssec:veiligheidsnormen}
+Naast de algemene kwaliteits- en regelgevingen speelt de technische veiligheid een sleutelrol
+bij het testen van kabels voor medische en laboratoriumapparatuur. Hierbij zijn twee specifieke
+IEC-normen van belang:
+
+\begin{itemize}
+    \item \textbf{IEC 62353\autocite{IEC62353}:} Deze norm beschrijft de vereisten voor het testen van medische elektrische toestellen na reparatie en voor periodieke inspecties. Voor kabels in medische toepassingen (zoals voedingskabels of patiëntkabels) stelt deze norm eisen aan metingen van de aardingsweerstand en lekstromen. De kabeltester moet in staat zijn om, in combinatie met het MES, te verifiëren of de kabel geen gevaarlijke lekstromen doorlaat die een risico kunnen vormen voor de patiënt of operator.
+    
+    \item \textbf{IEC 61010-1\autocite{IEC61010-1}:} Waar IEC 62353 betrekking heeft op het medische eindproduct, is IEC 61010-1 gericht op de veiligheidseisen voor elektrische apparatuur voor meet-, regel- en laboratoriumgebruik. Aangezien de ontworpen kabeltester zelf fungeert als test- en meetapparatuur, moet het hardware-ontwerp van de tester voldoen aan de eisen uit deze norm. Dit betekent dat het apparaat zelf veilig in gebruik moet zijn voor de operator, inclusief bescherming tegen elektrische schokken en brandgevaar.
+\end{itemize}
+
+
+\section{\IfLanguageName{dutch}{Kabeltester technieken}{}}%
+\label{sec:kabeltesters}
+
+Er zijn verschillende manieren om een kabel te testen. De technieken die bruikbaar zijn voor een universele, schaalbare en elektronische tester zijn: crosspoint matrix, shift registers, multiplexer ICs en I2C/SPI port expanders. 
+
+\subsection{\IfLanguageName{dutch}{Crosspoint Matrix}{}} 
+\label{ssec:crosspointmatrix}
+
+Een crosspoint matrix bestaat uit een aantal rijen, y-as, en kolommen, x-as, die via een relais aan elkaar hangen op elk kruispunt vandaar de naam (Figuur \ref{fig:CrosspointMatrix})\autocite{Stasonis2026}. Dit systeem kan in het algemeen toegepast worden bij testen van elektrische toestellen zo kan er aan de y-as test apparatuur verbonden worden zoals een spanningsbron en een voltmeter op verschillende rijen van de matrix en dan kan het te testen toestel verbonden worden aan de x-as. Op die manier kan je door de relais aan te sturen bepalen op welke pinnen van het te testen toestel je spanning wil zetten en welke je wil uitlezen. 
+
+Moderne systemen maken vaak gebruik van Solid-State Crosspoint Switches (geïntegreerde schakelingen)\autocite{NationalInstruments2022} of MOSFETs in plaats van mechanische relais. Dit verkleint de voetafdruk, verhoogt de schakelsnelheid en elimineert mechanische slijtage. Enkel de "on-resistance" (weerstand in ingeschakelde toestand) kan hoger zijn dan bij mechanische relais. 
+
+\begin{figure}[h!]
+    \centering
+    \captionsetup{width=0.8\textwidth}
+    \includegraphics[width=0.8\textwidth]{CrosspointMatrix.png}
+    \caption[Crosspoint matrix]{Matrix opstelling met test toestellen verbonden op de y-as \autocite{Stasonis2026}}
+    \label{fig:CrosspointMatrix} 
+\end{figure}
+
+Voor de connecties in een kabel te testen zou er dan één rij verbonden zijn met een hoog signaal en de andere rij met bijvoorbeeld een voltmeter aan grond en dan één voor één alle kolommen af te gaan om kijken of deze een signaal uit sturen. Deze techniek is heel flexibel en kan voor meerdere toepassingen gebruikt worden, ook kan het eenvoudig uitbreiden door meer rijen en kolommen toe te voegen. De kost voor de matrix kan echter snel oplopen door het gebruik van vele relais die vaak zelf inactief zijn aangezien je er meestal maar enkele nodig hebt tegelijk.
+
+\subsection{\IfLanguageName{dutch}{Shift register}{}} 
+\label{ssec:shiftregister}
+
+Een ketting bestaande uit Serial-In-Parallel-Out (SIPO) en Parallel-In-Serial-Out (PISO) schuifregisters maakt deze opstelling het testen van kabels mogelijk. Als elke connectie in een kabel vast hangt aan één pin van elk register kan er een hoge bit door de SIPO registers schuiven die één voor één een connectie hoog maakt. Vervolgens lezen de PISO-registers alle uiteinden uit. Het hieruit resulterende bit-patroon brengt de connecties in kaart. Dit systeem is eenvoudig uit te breiden door meer schuifregister aan de ketting toe te voegen met gevolg dat de snelheid ook verminderd omdat dit langer patroon steeds volledig uitgelezen wordt.
+De uitgaande en inkomende schuifregisters kunnen apart gestuurd worden of samen. Door ze apart te sturen is het eenvoudiger om het resultaat te lezen zonder de hoge bit te laten schuiven. Als ze echter wel aan elkaar hangen zal het vorige bit-patroon helemaal vervangen worden door een nieuw waar de bit die hoog staat 1 te schuiven naar zijn volgende positie.
+
+\subsection{\IfLanguageName{dutch}{I2C/SPI port expanders}{}} 
+\label{ssec:portexpanders}
+
+Als laatste hebben we de I2C of SPI port expanders. Hierbij kun je een bus creëren met twee (I2C) of vier (SPI) pinnen die deze chips aan elkaar binden. Bijvoorbeeld we kunnen de MCP23017 \autocite{Microchip2016} verbinden in een ketting via I2C. Dit kan tot een maximum van 8 chips aangezien enkel de drie LSB bits van hun adressen variabel zijn met dus in totaal 128 aanspreekbare pinnen. Op die manier kan je een pin configureren als uitgang en hoog maken terwijl alle rest van de pinnen als ingang staan. Deze kunnen dan alle andere aders testen en zien welke het hoog signaal ontvangen. Het grootste nadeel aan het gebruik van port expanders is dat het veel transacties nodig heeft wat dus de totale test tijd zal beïnvloeden.
+
+\subsection{\IfLanguageName{dutch}{Multiplexer ICs}{}} 
+\label{ssec:multiplexeric}
+
+Een andere optie is gebruik maken van multiplexers en demultiplexers \autocite{NationalInstruments2022}. Deze kun je indelen met demultiplexers aan de kant van de ingangen en de multiplexers aan de uitgangen. Als je een hoge spanning plaatst op de ingang van een of meerdere demultiplexers, kan je een interne lijn hoog zetten. Als je klaar bent met deze ader kan je de demultiplexers schakelen zodat hij de volgende hoog zet. Op dezelfde manier maar in de andere richting kun je multiplexers gebruiken om, wanneer een bepaalde lijn hoog staat, een voor een alle andere uitgangen in te lezen om te kijken welke draden ook een hoog signaal uitsturen.
+
+Deze manier is echter moeilijk achteraf uit te breiden als je een grotere kabel zou willen testen omdat ze niet eenvoudig achter elkaar kunnen geschakeld worden zoals bij de schuifregisters of de crosspoint matrix. Daarnaast heb je ook meer GPIO pinnen nodig om de multiplexers te sturen afhankelijk van hoeveel aders er zijn. Dit kan snel oplopen.
+
+\section{\IfLanguageName{dutch}{Bestaande kabeltesters}{}} 
+\label{ssec:bestaandekabeltesters}
+
+Zoals vermeld in de inleiding zijn er al kabeltesters beschikbaar op de markt.
+
+\subsection{\IfLanguageName{dutch}{CableEye® van CAMI}{}} 
+\label{ssec:CableEye}
+
+De CableEye-systemen van CAMI Research zijn modulaire, PC-gebaseerde kabeltesters die sterk gefocust zijn op flexibiliteit en visuele diagnostiek. Een kenmerkende eigenschap van CableEye is de bijbehorende grafische software, die na een scan automatisch een visuele \textit{wire map} en een gedetailleerde \textit{netlist} genereert. Het systeem maakt gebruik van verwisselbare adapterkaarten, waardoor het snel kan worden aangepast aan verschillende connectortypes. Naast basale continuïteitstesten ondersteunen de meer geavanceerde modellen binnen deze productlijn (zoals de HVX-serie) ook hoogspanningstesten (\textit{hipot}-testen) om de isolatieweerstand en doorslagspanning te meten, evenals de controle van ingebouwde componenten zoals weerstanden en diodes \autocite{CAMI2024}.
+
+\subsection{\IfLanguageName{dutch}{Cirris®}{}} 
+\label{ssec:Cirris}
+
+Cirris, onderdeel van de Komax Groep, is een van de grootste spelers op de markt voor kabeltestapparatuur. Hun portfolio varieert van compacte \textit{benchtop}-testers voor standalonetests tot omvangrijke, modulaire systemen voor complexe kabelbomen. Cirris-testers maken veelvuldig gebruik van de gepatenteerde \textit{Easy-Wire}-software, die operatoren stapsgewijs door het testproces loodst en fouten minimaliseert. Vanwege hun mechanische robuustheid en betrouwbaarheid in veeleisende productieomgevingen worden deze systemen op grote schaal ingezet in zowel de algemene industrie als in kritische sectoren zoals de medische apparatenbouw en defensie \autocite{Cirris2025}.
+
+\subsection{\IfLanguageName{dutch}{MK Test Systems}{}} 
+\label{ssec:MKTestSystems}
+
+MK Test Systems richt zich specifiek op het \textit{high-end} segment van de markt, met een sterke voetafdruk in de lucht- en ruimtevaart, defensie en de spoorwegindustrie. De systemen van deze fabrikant zijn ontworpen om volautomatisch extreem grote en complexe kabelbomen met duizenden testpunten door te meten. De nadruk ligt hierbij op een zeer hoge meetnauwkeurigheid, snelle foutlokalisatie en strikte naleving van strenge industrienormen (zoals de AS50881 in de luchtvaart). MK Test Systems onderscheidt zich door continuïteitstesten, isolatietesten en functionele testen naadloos te combineren in één enkele geautomatiseerde testcyclus \autocite{MKTest2024}.
+
+\subsection{\IfLanguageName{dutch}{WEETECH}{}} 
+\label{ssec:WEETECH}
+
+Het Duitse WEETECH is gespecialiseerd in industriële testsystemen die vaak direct worden geïntegreerd in geautomatiseerde productielijnen of specifieke testtafels (\textit{testbenches}), voornamelijk binnen de automotive- en spoorwegsector. Systemen zoals de W 434 en W 454 zijn modulair opgebouwd en geoptimaliseerd voor snelle \textit{high-voltage} isolatietesten en nauwkeurige componentmetingen. De software-architectuur van WEETECH is zo ontworpen dat deze direct kan communiceren met klantspecifieke ERP-systemen en productiedatabases, wat zorgt voor een sluitende traceerbaarheid binnen de kwaliteitsborging van het productieproces \autocite{Weetech2025}.
+
+\section{\IfLanguageName{dutch}{Microcontroller}{}}%
+\label{sec:µC}
+
+Als brein van de kabeltester hebben we een microcontroller nodig. Vandaag de dag is er ruime keuze hier zijn de voornamelijke keuzes:
+
+\subsection{\IfLanguageName{dutch}{ESP32}{}}%
+\label{sec:ESP32}
+
+De ESP32 reeks van Espressif \autocite{EspressifSystems2026} is een multifunctionele microcontroller die niet te complex is om te gebruiken, het support WiFi, Bluetooth en BLE. Daarnaast heeft het ook vele \textit{Board Support Packages} (BSP) die heel wat functionaliteiten zoals I2C, SPI, GPIO en anderen eenvoudig bruikbaar maken. Je kan de ESP32 programmeren met de Arduino IDE maar Espressif bied zelf ook een framework aan genaamd ESP-IDF deze kun je met een editor naar keuze gebruiken. 
+
+\subsection{\IfLanguageName{dutch}{Raspberry Pi RP2350}{}}%
+\label{sec:RP2350}
+
+
+
+\subsection{\IfLanguageName{dutch}{STM32}{}}%
+\label{sec:STM32}
+
+
+
+\subsection{\IfLanguageName{dutch}{Nordic nRF52840}{}}%
+\label{sec:Nordic nRF52840}
+
 
 % Tip: Begin elk hoofdstuk met een paragraaf inleiding die beschrijft hoe
 % dit hoofdstuk past binnen het geheel van de bachelorproef. Geef in het
@@ -32,7 +167,7 @@
 %  \caption[Voorbeeld codefragment]{Voorbeeld van het invoegen van een codefragment.}
 %\end{listing}
 
-\lipsum[7-20]
+%\lipsum[7-20]
 
 %\begin{table}
 %  \centering

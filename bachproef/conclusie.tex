@@ -2,9 +2,6 @@
 %% Conclusie
 %%=============================================================================
 
-\chapter{Conclusie}%
-\label{ch:conclusie}
-
 % TODO: Trek een duidelijke conclusie, in de vorm van een antwoord op de
 % onderzoeksvra(a)g(en). Wat was jouw bijdrage aan het onderzoeksdomein en
 % hoe biedt dit meerwaarde aan het vakgebied/doelgroep? 
@@ -14,5 +11,20 @@
 % Heeft het onderzoek geleid tot nieuwe vragen die uitnodigen tot verder 
 %onderzoek?
 
-\lipsum[76-80]
+\chapter{Conclusie}%
+\label{ch:conclusie}
+
+Bij het afsluiten van deze bachelorproef is een functionele kabeltester gerealiseerd, die zowel autonoom (standalone) als in combinatie met een Manufacturing Execution System (MES) ingezet kan worden. Hiermee kunnen gebruikers eenvoudig grote aantallen van kabels testen en beoordelen waarna de resultaten worden opgeslagen in de QMS voor later raad te plegen indien nodig. 
+
+Oorspronkelijk was het de bedoeling dat de kabeltester uitbreidbaar kon zijn voor meer complexe kabels door \textit{expansion boards} aan elkaar te koppelen. Dit is niet verwerkt in het huidige product. Dit is te wijten aan problemen met de signaalintegriteit over langere afstanden. Daarnaast is de \textit{Power-On Self-Test} (POST) nog niet geïmplementeerd voor een automatische zelftest bij het opstarten.
+
+Ondanks deze beperkingen kan de kabeltester wel gebruikt worden voor kabels die op één enkel \textit{expansion board} passen. De praktische waarde van het eindproduct wordt onderstreept door het bedrijf Trince, dat inmiddels vier exemplaren succesvol in gebruik heeft genomen en plannen heeft voor verdere uitbreiding.
+
+Voor toekomstig onderzoek en de verdere uitbreidingen van de tester zijn volgende verbeterpunten mogelijk:
+\begin{itemize}
+    \item Ontwerpen van een nieuw \textit{controller board} die de huidige tijdelijke \textit{devkit} vervangt.
+    \item Oplossen van de signaalintegriteitsproblemen, zodat meerdere \textit{expansion boards} succesvol in serie geplaatst kunnen worden (\textit{daisy-chaining}).
+    \item Implementeren van de ontbrekende POST-routine.
+    \item Optimaliseren van de WireViz-diagrammen om de leesbaarheid voor de eindgebruiker te vergroten.
+\end{itemize}
 

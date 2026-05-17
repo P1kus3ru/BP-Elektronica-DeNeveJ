@@ -144,7 +144,7 @@
 \DeclareOptionX*{\PassOptionsToClass{\CurrentOption}{book}}
 
 \ProcessOptionsX\relax
-\LoadClass[11pt]{book}
+\LoadClass[11pt, oneside]{book}
 
 %% English is the default language, but this can be changed to Dutch by
 %% specifying the 'dutch' option to the document class
@@ -366,9 +366,8 @@
 \def\titlestyle{\bfseries}
 \fi
 
-%% Use the length of the 'HO' part of the logo to set the padding of the logo
 \newsavebox{\logopart}
-\savebox{\logopart}{\includegraphics[height=2cm]{logopart}}
+\savebox{\logopart}{\includegraphics[height=2cm]{odisee_logo}}
 
 %% We use A4 paper with slightly smaller margins than the default (scale = 0.7)
 \geometry{a4paper, inner=33mm, outer=20mm, top=20mm, bottom=20mm, headheight=14pt}

@@ -2,8 +2,188 @@
 %% Methodologie
 %%=============================================================================
 
-\chapter{\IfLanguageName{dutch}{Methodologie}{Methodology}}%
+\chapter{\IfLanguageName{dutch}{Praktische Uitwerking}{}}%
 \label{ch:methodologie}
+
+\section{\IfLanguageName{dutch}{Printplaten}{}}%
+\label{sec:PCB}
+
+De kabeltester is opgebouwd uit een omhulsel en drie printplaten: Controllerboard, expansionboard en io board. Deze zijn ontworpen door mijn interne mentor Johan Scheirs. 
+
+\subsection{\IfLanguageName{dutch}{Controller board}{}} 
+\label{ssec:controllerboard}
+
+Dit is de centrale printplaat van de kabeltester (Figuur \ref{fig:ControllerBoard}). Hierop bevinden zich de ESP32, level shifter, EEPROM, teach-knop, connectors voor voeding, expansion board en case met leds en knop. De gebruikte ESP32 in dit prototype is de ESP32-S3-DevKitM-1U van Espressif \autocite{Espressif2026} en is het brein achter de kabeltester. Deze zal op een toekomstige release vervangen worden door de chip zelf met een kleinere footprint. De level shifter wordt gebruikt om de uitgaande signalen van de microcontroller van 3,3 V om te zetten naar 5 V aangezien de ESP en alle schuifregisters aan de 5 V rail hangen.
+
+\begin{figure}[h!]
+    \centering
+    \captionsetup{width=0.8\textwidth}
+    \includegraphics[width=0.8\textwidth]{ControllerBoard.jpg}
+    \caption[Controller board]{Bovenaanzicht van het controller board met microcontroller gemonteerd en draadjes naar voorkant omhulsel}
+    \label{fig:ControllerBoard} 
+\end{figure}
+
+
+\subsection{\IfLanguageName{dutch}{Expansion board}{}} 
+\label{ssec:expansionboard}
+
+De tweede printplaat bevat de schuifregisters (Figuur \ref{fig:ExpansionrBoard}). Per bord vind je vier paar bestaande uit één SIPO en één PISO schuifregisters bij elkaar. Hierbij is de eerste parallel out bit verbonden met de eerste parallel in bit. Deze verbinding takt ook af naar een de eerste pin in een 8-pin female header. Daarnaast heeft dit bord ook twee connectors voor flatcables waarvan, als je van boven af kijkt, de linkse verbonden wordt met het controller bord en de rechtse optioneel kan verbonden worden met een volgende expansionboard. Zo kan je de lengte van de daisy chain uitbreiden in het geval dat de kabel meer dan 32 pins nodig heeft.
+
+\begin{figure}[h!]
+    \centering
+    \captionsetup{width=0.8\textwidth}
+    \includegraphics[width=0.8\textwidth]{ExpansionBoard.jpg}
+    \caption[Expansion board]{Opgelost expansion board}
+    \label{fig:ExpansionrBoard} 
+\end{figure}
+
+In dit prototype zijn ook nog enkele defecten gevonden. Bij de PISO schuifregisters zijn de massa pinnen niet verbonden met het grondvlak en zweven ze nog. Daarnaast is de serial out van het derde schuifregister verbonden aan de twee volgende waardoor de serial out van de tweede open blijft terwijl deze naar de volgende moest. Deze problemen zijn dan met enkele jumper draadjes en wat soldeerwerk opgelost op de geleverde printplaatjes.
+
+\subsection{\IfLanguageName{dutch}{Interconnection board}{}} 
+\label{ssec:interconnectionboard}
+
+Als laatste hebben we het interconnection board (Figuur \ref{fig:IOBoard}). Deze heeft dezelfde dimensies als het expansion board en dient om de pinnen die verbonden zijn aan de ingangen en uitgangen van de schuifregisters te verbinden met bruikbare sockets waar je de verschillende connectors van de kabel kan insteken. Dit betekend dat er enkel een nieuw interconnection board moet worden ontworpen als de kabeltester gebruikt wordt voor een nieuwe kabel. Ook deze moest bij aankomst nog in orde gebracht worden omdat er twee pads nog overlapten met de trace van hun buren.
+
+\begin{figure}[h!]
+    \centering
+    \captionsetup{width=0.8\textwidth}
+    \includegraphics[width=0.8\textwidth]{IOBoard.jpg}
+    \caption[IO board]{Interconnection board voor een kabel van Trince.}
+    \label{fig:IOBoard} 
+\end{figure}
+
+
+\section{\IfLanguageName{dutch}{Standalone functionaliteit}{}}%
+\label{sec:CTStandalone}
+
+Van de kabeltester wordt verwacht dat deze autonoom kan werken. Hiervoor moet je enkel een kabel hebben die je wil testen en een kabeltester die een \textit{golden sample} opgeslagen heeft om mee te vergelijken.
+
+\subsection{\IfLanguageName{dutch}{Analyse}{}}%
+\label{sec:AnalyseStandalone}
+
+De standalone functionaliteit van de kabeltester heeft twee functies (Figuur \ref{fig:StandaloneSequentie}): het testen van een kabel door een gebruiker (Use Case \ref{sssec:UC:Test}) en het aanleren/opslaan van een \textit{golden sample} door een beheerder aan de hand van de 'Teach' (Use Case \ref{sssec:UC:Teach}). Het testen is heel voor de hand liggend. Een gebruiker hoeft enkel de kabel te verbinden met de juiste connectoren op het \textit{I/O board} en vervolgens op de knop op de behuizing duwen. Hierna zal de kabeltester de verbonden kabel inlezen en vergelijkt deze met de referentie die hij heeft opgeslagen. Indien dat de patronen overeenkomen zal de groene led opblinken anders zal de rode led oplichten. Het aanleren van de referentie vraagt echter om de behuizing open te schroeven. Dit komt omdat de knop om een kabel aan te leren op het \textit{controller board} staat. Hiervoor is gekozen zodat een werknemer niet zomaar de \textit{golden sample} zou overschrijven met een andere, mogelijks foute, kabel. Net zoals de test zal de \textit{teach} functie de kabel eerst inlezen en deze dan opslaan in de EEPROM. 
+
+
+\begin{figure}[h!]
+    \centering
+    \captionsetup{width=0.8\textwidth}
+    \includegraphics[width=0.8\textwidth]{SequenceDiagramV1.png}
+    \caption[Sequentiediagram standalone]{Sequentiediagram van standalone functionaliteit}
+    \label{fig:StandaloneSequentie} 
+\end{figure}
+
+% --- Use Case 1: Kabel Testen ---
+\subsubsection*{Use Case: Een kabel testen}
+\label{sssec:UC:Test}
+
+\noindent
+\begin{tabular}{ll}
+    \toprule
+    \textbf{Kenmerk} & \textbf{Specificatie} \\
+    \midrule
+    \textbf{Primaire actor:} & Een (willekeurige) gebruiker \\
+    \textbf{Preconditie:} & De kabeltester moet zijn ingeschakeld (voorzien van stroom). \\
+    \textbf{Postconditie:} & De kabeltester geeft aan of de kabel correct of defect is. \\
+    \bottomrule
+\end{tabular}
+
+\paragraph{Hoofdscenario (Basic Flow)}
+\begin{enumerate}[noitemsep]
+    \item De gebruiker wil zijn kabel testen.
+    \item De gebruiker sluit de kabel aan op de juiste poorten van het uitbreidingsbord (expansion board). (\textit{DR-CABLEPINS})
+    \item De gebruiker drukt op de externe drukknop om de test te starten.
+    \item De kabeltester controleert of de kabelstructuur overeenkomt met de correcte status.
+    \item De kabeltester toont het resultaat aan de gebruiker door middel van de leds op de behuizing.
+\end{enumerate}
+
+\paragraph*{Domeinregels (Domain Rules)}
+\begin{itemize}[noitemsep]
+    \item \textbf{DR-CABLEPINS:} De kabel mag niet meer in- en uitgangen gecombineerd hebben dan de beschikbare poorten op het uitbreidingsbord. Maximaal 256 pinnen = 32 schuifregisters (shift registers) = 8 uitbreidingsborden (beperkt door de EEPROM-grootte).
+\end{itemize}
+
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+% --- Use Case 2: Nieuwe kabel inleren ---
+\subsubsection*{Use Case: Een nieuwe kabel inleren}
+\label{sssec:UC:Teach}
+
+\noindent
+\begin{tabular}{ll}
+    \toprule
+    \textbf{Kenmerk} & \textbf{Specificatie} \\
+    \midrule
+    \textbf{Primaire actor:} & Een beheerder (administrator) \\
+    \textbf{Preconditie:} & De behuizing van de kabeltester is geopend en de kabeltester is ingeschakeld. \\
+    \textbf{Postconditie:} & De verbindingen van de nieuwe kabel zijn in kaart gebracht en opgeslagen op het apparaat. \\
+    \bottomrule
+\end{tabular}
+
+\paragraph*{Hoofdscenario (Basic Flow)}
+\begin{enumerate}[noitemsep]
+    \item De beheerder wil een nieuwe kabel inleren.
+    \item De beheerder sluit de kabel aan op de juiste poorten van het interconnectiebord (interconnection board). (\textit{DR-CABLEPINS})
+    \item De beheerder drukt op de interne drukknop ``TEACH'' om het inleerproces te starten.
+    \item De kabeltester controleert de verbindingen van de kabel en brengt deze in kaart. De neopixel knippert oranje om de voortgang te tonen.
+    \item De kabeltester slaat de nieuwe kabelconfiguratie op in het geheugen.
+    \item De kabeltester laat de neopixel groen branden om aan de gebruiker te tonen dat het proces is geslaagd.
+\end{enumerate}
+
+\paragraph*{Alternatieve Scenario's (Alternative Flows)}
+\begin{itemize}[noitemsep]
+    \item \textbf{5A. Het schrijven naar het geheugen gaat mis:}
+    \begin{enumerate}[label=\alph*., noitemsep]
+        \item De kabeltester laat de neopixel rood branden om een fout aan te geven aan de gebruiker.
+        \item De use case eindigt zonder de postconditie te bereiken.
+    \end{enumerate}
+\end{itemize}
+
+\paragraph*{Domeinregels (Domain Rules)}
+\begin{itemize}[noitemsep]
+    \item \textbf{DR-CABLEPINS:} De kabel mag niet meer in- en uitgangen gecombineerd hebben dan de beschikbare poorten op het uitbreidingsbord. Maximaal 256 pinnen = 32 schuifregisters (shift registers) = 8 uitbreidingsborden (beperkt door de EEPROM-grootte).
+\end{itemize}
+
+\vspace{1em}
+\hrule
+
+\subsubsection{\IfLanguageName{dutch}{Architectuur}{}}%
+\label{sssec:Architectuur}
+
+\begin{figure}[h!]
+    \centering
+    \captionsetup{width=0.8\textwidth}
+    \includegraphics[width=0.8\textwidth]{Blokdiagram.png}
+    \caption[Blokdiagram]{Overzicht van architectuur zowel standalone als MES-versie}
+    \label{fig:Blokdiagram} 
+\end{figure}
+
+
+\subsection{\IfLanguageName{dutch}{Uitwerking}{}}%
+\label{ssec:Uitwerking}
+
+
+
+\section{\IfLanguageName{dutch}{MES functionaliteit}{}}%
+\label{sec:CTMES}
+
+
+\subsection{\IfLanguageName{dutch}{Analyse}{}}%
+\label{ssec:AnalyseMES}
+
+\subsection{\IfLanguageName{dutch}{Workinstruction}{}}%
+\label{ssec:WI}
+
+Een \textit{workinstruction} bestaat uit een Jira ticket waar een stappenplan is aan verbonden. Optioneel kan daar een package aan toegevoegd worden die python-scripts bevatten. In een stap kan vervolgens een script aangeroepen worden. Dit kan gebruikt worden om automatisatie toe te voegen aan de \textit{workinstruction}.
+
+\begin{figure}[h!]
+    \centering
+    \captionsetup{width=0.8\textwidth}
+    \includegraphics[width=0.8\textwidth]{WIPage.png}
+    \caption[Workinstruction pagina]{Jira pagina van een simpele kabeltester \textit{workinstruction}}
+    \label{fig:WIPage} 
+\end{figure}
+
 
 %% TODO: In dit hoofstuk geef je een korte toelichting over hoe je te werk bent
 %% gegaan. Verdeel je onderzoek in grote fasen, en licht in elke fase toe wat
@@ -25,6 +205,4 @@
 %%
 %% Maak voor elke fase (behalve het literatuuronderzoek) een NIEUW HOOFDSTUK aan
 %% en geef het een gepaste titel.
-
-\lipsum[21-25]
 
