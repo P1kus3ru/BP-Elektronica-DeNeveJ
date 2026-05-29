@@ -153,27 +153,12 @@
 %...
 
 \input{conclusie}
-\input{nawoord}
-
-%---------- Bijlagen -----------------------------------------------------------
+%\input{nawoord}
 
 
-%%\chapter{Onderzoeksvoorstel}
 
-%%Het onderwerp van deze bachelorproef is gebaseerd op een onderzoeksvoorstel dat vooraf werd beoordeeld door de promotor. Dat voorstel is opgenomen in deze bijlage.
 
-%% TODO: 
-%\section*{Samenvatting}
 
-% Kopieer en plak hier de samenvatting (abstract) van je onderzoeksvoorstel.
-
-% Verwijzing naar het bestand met de inhoud van het onderzoeksvoorstel
-%%\input{../voorstel/voorstel-inhoud}
-
-%%---------- Andere bijlagen --------------------------------------------------
-% TODO: Voeg hier eventuele andere bijlagen toe. Bv. als je deze BP voor de
-% tweede keer indient, een overzicht van de verbeteringen t.o.v. het origineel.
-%\input{...}
 
 %%---------- Backmatter, referentielijst ---------------------------------------
 
@@ -184,6 +169,17 @@
 
 \input{genAI}
 
+%---------- Bijlagen -----------------------------------------------------------
+% TODO: Voeg hier eventuele andere bijlagen toe. Bv. als je deze BP voor de
+% tweede keer indient, een overzicht van de verbeteringen t.o.v. het origineel.
+%\input{...}
+
 \appendix
+\addcontentsline{toc}{chapter}{Bijlagen}
+\chapter{Bijlagen}
+\includepdf[pages=-, angle=90, addtotoc={1,section,1,Schema van het controller board,bijlage:ControllerboardSchematic}]{../attachments/ControllerboardSchematic.pdf}
+\includepdf[pages=-, addtotoc={1,section,1,Schema van het expansionboard board,bijlage:ExpansionboardSchematic}]{../attachments/ExpansionboardSchematic.pdf}
+\includepdf[pages=-, angle=90, addtotoc={1,section,1,Schema van het IO board,bijlage:IOboardSchematic}]{../attachments/IOboardSchematic.pdf}
+
 
 \end{document}

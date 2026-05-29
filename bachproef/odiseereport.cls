@@ -229,7 +229,7 @@
 \RequirePackage{pdfpages}
 \RequirePackage{rotating}
 \RequirePackage{tabularx}
-\RequirePackage{tcolorbox}
+\RequirePackage[most]{tcolorbox}
 \RequirePackage[noindentafter]{titlesec}
 \RequirePackage{titletoc}
 \RequirePackage[nottoc]{tocbibind}
