@@ -3,48 +3,42 @@
 
 \section{\IfLanguageName{dutch}{Qity QMS \protect\& MES}{}}%
 \label{sec:QMS}
-Om het validatie- en documentatieproces te stroomlijnen, heeft Qity een eigen Quality Management System (QMS) ontworpen. Dit systeem is gebaseerd op het Atlassian-ecosysteem en biedt geïntegreerde tools die manueel werk zoveel mogelijk elimineren \autocite{Qity2025}. Binnen Jira kan bijvoorbeeld een \textit{sprint board} worden bijgehouden, waarbij een ticket direct de status van de bijhorende \textit{branch} in Bitbucket weergeeft. Een andere belangrijke functionaliteit van het QMS is de integratie met Altium 365, waardoor opmerkingen op schema's of PCB-ontwerpen rechtstreeks gekoppeld kunnen worden aan bestaande of nieuwe Jira-tickets.
+Om het validatie- en documentatieproces te stroomlijnen, heeft Qity een eigen \gls{QMS} ontworpen. Dit systeem is gebaseerd op het Atlassian-ecosysteem en biedt geïntegreerde tools die manueel werk zoveel mogelijk elimineren \autocite{Qity2025}. Binnen Jira kan bijvoorbeeld een \textit{sprint board} worden bijgehouden, waarbij een ticket direct de status van de bijhorende \textit{branch} in Bitbucket weergeeft. Een andere belangrijke functionaliteit van het \gls{QMS} is de integratie met Altium 365, waardoor opmerkingen op schema's of PCB-ontwerpen rechtstreeks gekoppeld kunnen worden aan bestaande of nieuwe Jira-tickets.
 
-Naast het QMS biedt Qity ook een Manufacturing Execution System (MES) aan. Dit systeem begeleidt
-de operator stap voor stap door het assemblage- en testproces. Deze gestructureerde aanpak
-minimaliseert menselijke fouten. Bovendien biedt het MES de mogelijkheid om automatiseringsscripts,
-geschreven in Python, aan te roepen vanuit de werkinstructies om processen verder te optimaliseren.
-De combinatie van dit MES met het QMS resulteert in een robuust systeem met volledige
-traceerbaarheid.
+Naast het \gls{QMS} biedt Qity ook een \gls{MES} aan. Dit systeem begeleidt de operator stap voor stap door het assemblage- en testproces. Deze gestructureerde aanpak minimaliseert menselijke fouten. Bovendien biedt het \gls{MES} de mogelijkheid om automatiseringsscripts, geschreven in Python, aan te roepen vanuit de werkinstructies om processen verder te optimaliseren. De combinatie van dit \gls{MES} met het \gls{QMS} resulteert in een robuust systeem met volledige traceerbaarheid.
 
-Een van de doelstellingen van de kabeltester is de integratie met de MES. Dit systeem draait momenteel op een computer met een Linux distributie. Er wordt echter onderzocht om dit systeem meer \textit{portable} te maken door het te draaien op een iPad. Het originele plan is een seriële connectie tussen beide te leggen en de communicatie op deze manier te laten verlopen. Alternatief als we naar de toekomst draadloze functionaliteit willen voor de iPad, kunnen we mogelijks MQTT, TCP, HTTP, Bluetooth of BLE gebruiken als de kabeltester deze protocollen ondersteunen.
+Een van de doelstellingen van de kabeltester is de integratie met de \gls{MES}. Dit systeem draait momenteel op een computer met Ubuntu als \textit{operating system}. Er wordt echter onderzocht om dit systeem meer \textit{portable} te maken door het te draaien op een iPad. Het originele plan is een seriële connectie tussen beide te leggen en de communicatie op deze manier te laten verlopen. Alternatief als we naar de toekomst draadloze functionaliteit willen voor de iPad, kunnen we mogelijks \acrshort{TCP}, \acrshort{HTTP}, Bluetooth, \gls{MQTT} of \gls{BLE} gebruiken als de kabeltester deze protocollen ondersteunen.
 
 \subsection{\IfLanguageName{dutch}{Europese regelgeving: MDR en IVDR}{}}%
 \label{ssec:regelgeving}
-Wanneer kabels worden toegepast in medische toestellen, vallen deze binnen de Europese Unie onder
-de regelgeving van het desbetreffende medische hulpmiddel. De voornaamste regelgevingen zijn:
+Wanneer kabels worden toegepast in medische toestellen, vallen deze binnen de Europese Unie onder de regelgeving van het desbetreffende medische hulpmiddel. De voornaamste regelgevingen in deze sector zijn:
 
 \begin{itemize}
-    \item \textbf{MDR\autocite{MDR2017}:} De Medical Device Regulation beschrijft de strenge voorwaarden waaraan een product moet voldoen om de CE-markering te mogen dragen, waaronder ook de validatie en het testen van de bijbehorende kabels valt.
+    \item \textbf{\gls{MDR}\autocite{MDR2017}:} De \gls{MDR} beschrijft de strenge voorwaarden waaraan een medisch product moet voldoen om de CE-markering te mogen dragen, waaronder ook de validatie en het testen van de bijbehorende kabels valt.
     
-    \item \textbf{IVDR\autocite{IVDR2017}:} Wanneer een toestel gebruikt wordt voor in-vitro toepassingen, moet het tevens voldoen aan de In Vitro Diagnostic Regulation, die analoge eisen stelt voor diagnostische hulpmiddelen.
+    \item \textbf{\gls{IVDR}\autocite{IVDR2017}:} Wanneer een toestel gemaakt en gebruikt wordt voor \textit{in-vitro} toepassingen, moet het tevens voldoen aan de \gls{IVDR}, die analoge eisen stelt voor diagnostische hulpmiddelen.
 \end{itemize}
 
 \subsection{\IfLanguageName{dutch}{Kwaliteitsnormen: ISO 13485 en ISO 9001}{}}%
 \label{ssec:kwaliteitsnormen}
-Zowel de MDR als de IVD, eisen dat een bedrijf dat medische toestellen maakt conform ISO 13485 is en het Qity QMS is opgebouwd rond deze internationale kwaliteitsnormen. Het naleven van deze standaarden garandeert niet alleen conformiteit met de Europese wetgeving, maar vereenvoudigt ook de wereldwijde export, aangezien deze normen internationaal breed erkend worden\autocite{Muehendislik2025}.
+Zowel de \gls{MDR} als de \gls{IVDR}, eisen dat een bedrijf dat medische toestellen maakt conform \gls{ISO} 13485 is en het Qity \gls{QMS} is opgebouwd rond deze internationale kwaliteitsnormen. Het naleven van deze standaarden garandeert niet alleen conformiteit met de Europese wetgeving, maar vereenvoudigt ook de wereldwijde export, aangezien deze normen internationaal breed erkend worden\autocite{Muehendislik2025}.
 
 \begin{itemize}
-    \item \textbf{ISO 13485\autocite{ISO13485}:} Deze norm legt de minimale vereisten vast voor kwaliteitsmanagementsystemen in de medische sector en vormt de ruggengraat van het Qity QMS.
+    \item \textbf{\gls{ISO} 13485\autocite{ISO13485}:} Deze norm legt de minimale vereisten vast voor kwaliteitsmanagementsystemen in de medische sector en vormt de ruggengraat van het Qity \gls{QMS}.
     
-    \item \textbf{ISO 9001\autocite{ISO9001}:} Ter ondersteuning van ISO 13485 worden aanvullend principes uit deze meer algemene kwaliteitsmanagementnorm toegepast.
+    \item \textbf{\gls{ISO} 9001\autocite{ISO9001}:} Ter ondersteuning van \gls{ISO} 13485 worden aanvullend principes uit deze meer algemene kwaliteitsmanagementnorm toegepast.
 \end{itemize}
 
 \subsection{\IfLanguageName{dutch}{Veiligheidsnormen: IEC 62353 en IEC 61010-1}{}}%
 \label{ssec:veiligheidsnormen}
-Naast de algemene kwaliteits- en regelgevingen speelt de technische veiligheid een sleutelrol
-bij het testen van kabels voor medische en laboratoriumapparatuur. Hierbij zijn twee specifieke
-IEC-normen van belang:
+Naast de algemene kwaliteits- en regelgevingen speelt de technische veiligheid een sleutelrol bij het testen van kabels voor medische en laboratoriumapparatuur. Hierbij zijn twee specifieke \gls{IEC} normen van belang:
 
 \begin{itemize}
-    \item \textbf{IEC 62353\autocite{IEC62353}:} Deze norm beschrijft de vereisten voor het testen van medische elektrische toestellen na reparatie en voor periodieke inspecties. Voor kabels in medische toepassingen (zoals voedingskabels of patiëntkabels) stelt deze norm eisen aan metingen van de aardingsweerstand en lekstromen.
+    \item \textbf{\gls{IEC} 62353\autocite{IEC62353}:} Deze norm beschrijft de vereisten voor het testen van medische elektrische toestellen na reparatie en voor periodieke inspecties. Voor kabels in medische toepassingen (zoals voedingskabels of patiëntkabels) stelt deze norm eisen aan metingen van de aardingsweerstand en lekstromen.
     
-    \item \textbf{IEC 61010-1 / IEC 60601-1\autocite{IEC61010-1, IEC60601-1}:} Aangezien de ontworpen kabeltester fungeert als test- en meetapparatuur, moet het hardware-ontwerp van de tester zelf voldoen aan de veiligheidseisen van IEC 61010-1 om de operator te beschermen tegen risico's zoals elektrische schokken en brandgevaar. Tegelijkertijd test het apparaat kabels die specifiek in medische apparatuur worden ingezet. De functionele specificaties en het testprotocol van de tester moeten daarom direct afgestemd zijn op de strenge limieten (zoals isolatieweerstand en lekstromen) uit IEC 60601-1, om te garanderen dat de geteste kabels veilig zijn voor medisch gebruik.
+    \item \textbf{\gls{IEC} 61010-1 / \gls{IEC} 60601-1\autocite{IEC61010-1, IEC60601-1}:} Aangezien de ontworpen kabeltester functioneert als test- en meetapparatuur, is het hardware-ontwerp in de eerste plaats ontworpen conform de veiligheidseisen van de norm \textbf{\gls{IEC} 61010-1}. Deze norm is leidend voor het instrument zelf en waarborgt de veiligheid van de operator tegen risico’s zoals elektrische schokken, brandgevaar en mechanische defecten. 
+    
+    Naast deze basisveiligheid is er een tweede, gelijkaardige norm van cruciaal belang voor de werking: \textbf{\gls{IEC} 60601-1}. Omdat het apparaat specifiek kabels test die in medische omgevingen worden ingezet, zijn de functionele testprotocollen en kritische limieten (zoals de minimale isolatieweerstand en maximale lekstromen) rechtstreeks afgestemd op de strenge veiligheidsspecificaties uit deze medische norm.
 \end{itemize}
 
 \section{\IfLanguageName{dutch}{Microcontroller}{}}%
@@ -55,52 +49,56 @@ Als brein van de kabeltester hebben we een microcontroller nodig. Deze moet onze
 \subsection{\IfLanguageName{dutch}{ESP32}{}}%
 \label{ssec:ESP32}
 
-De ESP32 reeks van Espressif \autocite{EspressifSystems2026} is een multifunctionele microcontroller die niet te complex is om te gebruiken, het support WiFi, Bluetooth en BLE. Daarnaast heeft het ook vele \textit{Board Support Packages} (BSP) die heel wat functionaliteiten zoals I2C, SPI en GPIO eenvoudig bruikbaar maken. Daarnaast is het mogelijk om de functies van pinnen te veranderen via multiplexen moest je een nieuwe versie van de printplaat maken en de signalen wil verleggen. Deze chip is wat \textit{overkill} voor een kabeltester als deze geen WiFi, Bluetooth of BLE functionaliteiten nodig heeft.
+De ESP32 reeks van Espressif \autocite{EspressifSystems2026} is een multifunctionele microcontroller die niet te complex is om te gebruiken, het support Wi-Fi, Bluetooth en \gls{BLE}. Daarnaast heeft het ook vele \glspl{BSP} die heel wat functionaliteiten zoals \gls{I2C}, \gls{SPI} en \gls{GPIO} eenvoudig bruikbaar maken. Daarnaast is het mogelijk om de functies van pinnen te veranderen via multiplexen, dit kan handig zijn mocht je een nieuwe versie van de printplaat maken en de signalen moeten verleggen. Deze chip is wat \textit{overkill} voor een kabeltester als deze geen Wi-Fi, Bluetooth of \gls{BLE} functionaliteiten nodig heeft.
 
-Je kan de ESP32 programmeren met de Arduino IDE, maar Espressif biedt zelf ook een framework aan genaamd ESP-IDF. In feite maakt de Arduino-omgeving voor de ESP32 op de achtergrond gebruik van vooraf gecompileerde libraries van dit onderliggende ESP-IDF framework \autocite{EspressifSystems2024}. Door zelf direct gebruik te maken van de ESP-IDF heb je meer controle over de hardware.
+Je kan de ESP32 programmeren met de Arduino IDE, maar Espressif biedt zelf ook een framework aan genaamd \gls{ESP-IDF}. In feite maakt de Arduino-omgeving voor de ESP32 op de achtergrond gebruik van vooraf gecompileerde \textit{libraries} van dit onderliggende framework \autocite{EspressifSystems2024}. Door zelf direct gebruik te maken van de \gls{ESP-IDF} heb je meer controle over de hardware.
 
 \subsection{\IfLanguageName{dutch}{Raspberry Pi RP2350}{}}%
 \label{ssec:RP2350}
 
-Een relatief nieuwe en krachtige microcontroller, die is ontworpen als opvolger van de populaire RP2040, is de Raspberry Pi RP2350 \autocite{RPL2025}. In tegenstelling tot de ESP32 bevat de standaarduitvoering van deze chip geen ingebouwde WiFi- of Bluetooth-radio, waardoor er geen onnodige overhead is voor applicaties die puur lokaal werken. De chip beschikt over een flexibele architectuur (keuze tussen ARM Cortex-M33 en Hazard3 RISC-V cores) en biedt ruim voldoende GPIO-pinnen, SPI- en I2C-interfaces. Als WiFi of Bluetooth wel nodig zijn kan de Pico 2W, die gebaseerd is op de RP2350, gebruikt worden.
+Een relatief nieuwe en krachtige microcontroller, die is ontworpen als opvolger van de populaire RP2040, is de Raspberry Pi RP2350 \autocite{RPL2025}. In tegenstelling tot de ESP32 bevat de standaarduitvoering van deze chip geen ingebouwde Wi-Fi- of Bluetooth-radio, waardoor er geen onnodige overhead is voor applicaties die puur lokaal werken. De chip beschikt over een flexibele architectuur (keuze tussen ARM Cortex-M33 en Hazard3 RISC-V cores) en biedt ruim voldoende \acrshort{GPIO}-pinnen, \acrshort{SPI}- en \acrshort{I2C}-interfaces. Als Wi-Fi of Bluetooth wel nodig zijn kan de Pico 2W, die gebaseerd is op de RP2350, gebruikt worden.
 
 Een uniek en cruciaal voordeel van de RP2350 voor een kabeltester zijn de \textit{Programmable I/O} (PIO) blokken. Dit zijn kleine, onafhankelijke hardware-statemachines die I/O-pinnen kunnen aansturen en uitlezen op zeer hoge snelheid, volledig los van de hoofdprocessor. Voor een kabeltester maakt dit het mogelijk om deterministisch en razendsnel pinverbindingen te detecteren zonder de CPU te belasten. Net als bij de ESP32 biedt de RP2350 een flexibele pin-matrix (multiplexing), waardoor perifere functies eenvoudig aan verschillende fysieke pinnen kunnen worden toegewezen bij een eventueel nieuw PCB-ontwerp.
+
+Een nadeel van deze microcontroller is dat het een commerciële chip is. Dit betekend dat een lange levensduur of industriële software ondersteuning niet gegarandeerd zijn.
 
 \subsection{\IfLanguageName{dutch}{STM32}{}}%
 \label{ssec:STM32}
 
 De STM32-productfamilie van STMicroelectronics \autocite{STMicroelectronics2025} is een breed gecertificeerde industriestandaard binnen de embedded elektronica. Omdat deze microcontrollerreeks honderden verschillende varianten kent (gebaseerd op diverse ARM Cortex-M architecturen), kan er exact een chip worden gekozen die aansluit bij de hardwarematige behoeften van de kabeltester, zonder te betalen voor ongebruikte features zoals draadloze connectiviteit. Met de WB reeks kan Bluetooth wel gebruikt worden.
 
-Voor een kabeltester blinkt de STM32 uit in zijn robuuste hardware-peripherals. De chip beschikt over zeer geavanceerde hardware-timers die uitstekend geschikt zijn voor nauwkeurige PWM-generatie. Daarnaast staan STM32-chips bekend om hun stabiele en snelle GPIO-afhandeling, I2C- en SPI-bussen. Ontwikkeling gebeurt meestal via het STM32CubeIDE-framework met behulp van de \textit{Hardware Abstraction Layer} (HAL). Dit biedt diepgaande controle over de registers, hoewel de leercurve en de complexiteit van de code hierdoor wel aanzienlijk hoger liggen dan bij het Arduino-platform of ESP-IDF.
+Voor een kabeltester blinkt de STM32 uit in zijn robuuste hardware-peripherals. De chip beschikt over zeer geavanceerde hardware-timers die uitstekend geschikt zijn voor nauwkeurige \acrshort{PWM}-generatie. Daarnaast staan STM32-chips bekend om hun stabiele en snelle \acrshort{GPIO}-afhandeling, \acrshort{I2C}- en \acrshort{SPI}-bussen. 
+
+Ontwikkeling gebeurt meestal via het STM32CubeIDE-framework met behulp van de \gls{HAL}. Dit biedt diepgaande controle over de registers. Hoewel de leercurve en de complexiteit van de code hierdoor aanzienlijk hoger liggen dan bij het Arduino-platform of \gls{ESP-IDF}, brengt deze \gls{HAL} een cruciaal industrieel voordeel met zich mee: de softwarebibliotheken en onderliggende drivers van STMicroelectronics zijn officieel gekeurd en gecertificeerd voor bedrijfskritische en safety-critical omgevingen, waaronder de strenge automotivesector (conform \gls{ISO} 26262) \autocite{STMicroelectronics2026, STMicroelectronics2023}. Deze hoge mate van softwarematige determinisme en pre-certificering maakt het platform bij uitstek geschikt voor test- en meetapparatuur waarbij absolute betrouwbaarheid en strikte normering vereist zijn.
 
 \subsection{\IfLanguageName{dutch}{Nordic nRF52840}{}}%
 \label{ssec:Nordic nRF52840}
 
-De nRF52840 van Nordic Semiconductor \autocite{NSA2024} is een geavanceerde \textit{System-on-Chip} (SoC) die specifiek is ontworpen voor energiezuinige draadloze toepassingen. De chip is de marktstandaard voor applicaties die gebruikmaken van Bluetooth Low Energy (BLE), Zigbee en Thread, en beschikt over een ARM Cortex-M4 processor met een ingebouwde \textit{Floating Point Unit} (FPU).
+De nRF52840 van Nordic Semiconductor \autocite{NSA2024} is een geavanceerde System-on-Chip (SoC) die specifiek is ontworpen voor energiezuinige draadloze toepassingen. De chip is de marktstandaard voor applicaties die gebruikmaken van \gls{BLE}, Zigbee en Thread, en beschikt over een ARM Cortex-M4 processor met een ingebouwde Floating Point Unit (FPU).
 
-Hoewel de nRF52840 beschikt over uitstekende hardware-peripherals voor SPI, I2C en PWM, en een zeer flexibele GPIO-matrix heeft waarmee pinnen dynamisch gerouteerd kunnen worden, is deze chip een minder logische keuze voor dit specifieke project. De volledige architectuur en de bijbehorende software-stacks (zoals het nRF Connect SDK framework) zijn geoptimaliseerd rondom de draadloze radio. Aangezien de kabeltester enkel fysieke signalen meet en geen gebruik maakt van Bluetooth of BLE, brengt deze chip onnodige kosten, complexiteit en ongebruikte silicon-oppervlakte met zich mee.
+Hoewel de nRF52840 beschikt over uitstekende hardware-peripherals voor \gls{SPI}, \gls{I2C} en \gls{PWM}, en een zeer flexibele \gls{GPIO}-matrix heeft waarmee pinnen dynamisch gerouteerd kunnen worden, is deze chip een minder logische keuze voor dit specifieke project. De volledige architectuur en de bijbehorende software-stacks (zoals het nRF Connect SDK framework) zijn geoptimaliseerd rondom de draadloze radio. Aangezien de kabeltester enkel fysieke signalen meet en geen gebruik maakt van Bluetooth of BLE, brengt deze chip onnodige kosten, complexiteit en ongebruikte silicon-oppervlakte met zich mee.
 
 \subsection{\IfLanguageName{dutch}{Conclusie}{}}%
 \label{ssec:µCController}
 
-Voor een kabeltester zonder draadloze functionaliteit zijn de RP2350 en de STM32 de meest logische keuzes. De RP2350 springt eruit dankzij de PIO-blokken, die pinverbindingen razendsnel en deterministisch kunnen detecteren zonder de CPU te belasten. De STM32 daarnaast is een bewezen industriestandaard met robuuste hardware-peripherals, maar vraagt meer ontwikkeltijd door de complexiteit van STM32CubeIDE en de HAL.
+Voor een kabeltester zonder draadloze functionaliteit zijn de RP2350 en de STM32 de meest logische keuzes. De RP2350 springt eruit dankzij de PIO-blokken, die pinverbindingen razendsnel en deterministisch kunnen detecteren zonder de CPU te belasten. De STM32 daarnaast is een bewezen industriestandaard met robuuste hardware-peripherals, maar vraagt meer ontwikkeltijd door de complexiteit van STM32CubeIDE en de \gls{HAL}.
 
-Als draadloze communicatie een vereiste wordt, schuift de ESP32 naar voren. WiFi en BLE zijn ingebouwd en het framework is toegankelijk, al gaat dit wel gepaard met een hoger stroomverbruik. 
+Als draadloze communicatie een vereiste wordt, schuift de ESP32 naar voren. Wi-Fi en BLE zijn ingebouwd en het framework is toegankelijk, al gaat dit wel gepaard met een hoger stroomverbruik. 
 
 
 \section{\IfLanguageName{dutch}{Kabeltester technieken}{}}%
 \label{sec:kabeltesters}
 
-Er zijn verschillende manieren om een kabel te testen. Voor deze toepassing is enkel de aanwezigheid van een \textit{point-to-point} connectie relevant. We meten dus enkel of een kabel correct is geassembleerd. De snelheid en kwaliteit van de signalen vallen buiten de \textit{scope} en worden niet gemeten. Het gewenste resultaat is een overzicht van alle juiste, kortgesloten en ontbrekende connecties. Andere technieken zoals TDR (Time Domain Reflectometry), hipot-testen en flying probe vallen buiten deze scope, omdat ze gespecialiseerde meetapparatuur vereisen of niet geschikt zijn voor een low-cost, microcontroller-gebaseerde implementatie \autocite{Khouri2021} \autocite{Bi2018}. De technieken die bruikbaar zijn voor een universele, schaalbare en elektronische tester zijn: crosspoint matrix, shift registers, multiplexer ICs en I2C/SPI port expanders.
+Er zijn verschillende manieren om een kabel te testen. Voor deze toepassing is enkel de aanwezigheid van een \textit{point-to-point} connectie relevant. We meten dus enkel of een kabel correct is geassembleerd. De snelheid en kwaliteit van de signalen vallen buiten de \textit{scope} en worden niet gemeten. Het gewenste resultaat is een overzicht van alle juiste, kortgesloten en ontbrekende connecties. Andere technieken zoals Time Domain Reflectometry (TDR), hipot-testen en \textit{flying probe} vallen buiten deze scope, omdat ze gespecialiseerde meetapparatuur vereisen of niet geschikt zijn voor een low cost, microcontroller-gebaseerde implementatie \autocite{Khouri2021} \autocite{Bi2018}. De technieken die bruikbaar zijn voor een universele, schaalbare en elektronische tester zijn: \textit{crosspoint matrix}, schuifregisters, multiplexer ICs en \textit{\gls{I2C}/\gls{SPI} port expanders}.
 
 \subsection{\IfLanguageName{dutch}{Crosspoint Matrix}{}} 
 \label{ssec:crosspointmatrix}
 
-Een crosspoint matrix bestaat uit een aantal rijen, y-as, en kolommen, x-as, van geleiders die via een relais aan elkaar hangen op elk kruispunt vandaar de naam (Figuur \ref{fig:CrosspointMatrix})\autocite{Stasonis2026}. Dit systeem kan in het algemeen toegepast worden bij testen van elektrische toestellen zo kan er aan de y-as test apparatuur verbonden worden zoals een spanningsbron en een voltmeter op verschillende rijen van de matrix en dan kan het te testen toestel verbonden worden aan de x-as. Op die manier kan je door de relais aan te sturen bepalen op welke pinnen van het te testen toestel je spanning wil zetten en welke je wil uitlezen. 
+Een \textit{crosspoint matrix} bestaat uit een aantal rijen, y-as, en kolommen, x-as, van geleiders die via een relais aan elkaar hangen op elk kruispunt vandaar de naam (Figuur \ref{fig:CrosspointMatrix})\autocite{Stasonis2026}. Dit systeem kan in het algemeen toegepast worden bij testen van elektrische toestellen, zo kan er aan de y-as test apparatuur verbonden worden zoals een spanningsbron en een voltmeter op verschillende rijen van de matrix en dan kan het te testen toestel verbonden worden aan de x-as. Op die manier kan je door de relais aan te sturen bepalen op welke pinnen van het te testen toestel je spanning wil zetten en welke je wil uitlezen. 
 
-Moderne systemen maken vaak gebruik van Solid-State Crosspoint Switches (geïntegreerde schakelingen)\autocite{NationalInstruments2022} of MOSFETs in plaats van mechanische relais. Dit verkleint de voetafdruk, verhoogt de schakelsnelheid en elimineert mechanische slijtage. Enkel de 'on-resistance' (weerstand in ingeschakelde toestand) kan hoger zijn dan bij mechanische relais. 
+Moderne systemen maken vaak gebruik van \textit{Solid-State Crosspoint Switches} (geïntegreerde schakelingen)\autocite{NationalInstruments2022} of MOSFETs in plaats van mechanische relais. Dit verkleint de voetafdruk, verhoogt de schakelsnelheid en elimineert mechanische slijtage. Enkel de 'on-resistance' (weerstand in ingeschakelde toestand) kan hoger zijn dan bij mechanische relais. 
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
     \centering
     \captionsetup{width=0.8\textwidth}
     \includegraphics[width=0.8\textwidth]{CrosspointMatrix.png}
@@ -108,42 +106,42 @@ Moderne systemen maken vaak gebruik van Solid-State Crosspoint Switches (geïnte
     \label{fig:CrosspointMatrix} 
 \end{figure}
 
-Voor de connecties in een kabel te testen zou er dan één rij verbonden zijn met een hoog signaal en de andere rij met de microcontroller en dan één voor één alle kolommen af te gaan om te kijken of deze een signaal uit sturen. Deze techniek is heel flexibel en kan voor meerdere toepassingen worden gebruikt, ook kan het eenvoudig uitgebreid worden door meer rijen en kolommen toe te voegen. De kost voor de matrix kan echter snel oplopen door het gebruik van vele relais die vaak zelf inactief zijn aangezien je er meestal maar enkele nodig hebt tegelijk.
+Voor de connecties in een kabel te testen zou er dan één rij verbonden zijn met een hoog signaal en de andere rij met de microcontroller en dan één voor één alle kolommen af te gaan om te kijken of deze een signaal uitsturen. Deze techniek is heel flexibel en kan voor meerdere toepassingen worden gebruikt, ook kan het eenvoudig uitgebreid worden door meer rijen en kolommen toe te voegen. De kost voor de matrix kan echter snel oplopen door het gebruik van vele relais die vaak zelf inactief zijn aangezien je er meestal maar enkele nodig hebt tegelijk.
 
 \subsection{\IfLanguageName{dutch}{Schuifregisters}{Shift registers}} 
 \label{ssec:shiftregister}
 
-Met een ketting bestaande uit Serial-In-Parallel-Out (SIPO) en Parallel-In-Serial-Out (PISO) schuifregisters kan een kabel getest worden (Figuur \ref{fig:BlokdiagramShiftregisters}). Als elke connectie in een kabel vast hangt aan één pin van elk register kan er een hoge bit door de SIPO registers schuiven die één voor één een connectie hoog maakt. Vervolgens lezen de PISO-registers alle uiteinden uit. Het hieruit resulterende bit-patroon brengt de connecties in kaart. Dit systeem is eenvoudig uit te breiden door meer schuifregister aan de ketting toe te voegen met gevolg dat de snelheid ook verminderd omdat dit langer patroon steeds volledig uitgelezen wordt.
+Met een ketting bestaande uit \gls{SIPO} en \gls{PISO} schuifregisters kan een kabel getest worden (Figuur \ref{fig:BlokdiagramShiftregisters}). Als elke connectie in een kabel vast hangt aan één pin van elk register kan er een hoge bit door de \gls{SIPO} registers schuiven die één voor één een connectie hoog maakt. Vervolgens lezen de \gls{PISO}-registers alle uiteinden uit. Het hieruit resulterende bitpatroon brengt de connecties in kaart. Dit systeem is eenvoudig uit te breiden door meer schuifregister aan de ketting toe te voegen met gevolg dat de snelheid ook verminderd omdat dit langer patroon steeds volledig uitgelezen wordt.
 
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
     \centering
     \captionsetup{width=0.8\textwidth}
     \includegraphics[width=0.8\textwidth]{BlokDiagramShiftRegisters.png}
-    \caption[Blokdiagram voorbeeld schuifregisters]{Blokdiagram SIPO en PISO schuifregisters met gemeenschappelijke klok.}
+    \caption[Blokdiagram voorbeeld schuifregisters]{Blokdiagram \gls{SIPO} en \gls{PISO} schuifregisters met gemeenschappelijke klok.}
     \label{fig:BlokdiagramShiftregisters} 
 \end{figure}
 
-De uitgaande en inkomende schuifregisters kunnen apart gestuurd worden of samen. Door ze apart te sturen is het eenvoudiger om het resultaat te lezen zonder de hoge bit te laten schuiven. Als ze echter wel aan elkaar hangen zal het vorige bit-patroon helemaal vervangen worden door een nieuw waar de bit die hoog staat 1 te schuiven naar zijn volgende positie.
+De uitgaande en inkomende schuifregisters kunnen apart gestuurd worden of samen. Door ze apart te sturen is het eenvoudiger om het resultaat te lezen zonder de hoge bit te laten schuiven. Als ze echter wel aan elkaar hangen zal het vorige bitpatroon helemaal vervangen worden door een nieuw waar de bit die hoog staat één te schuiven naar zijn volgende positie.
 
-Als je bijvoorbeeld een kabel van 4 aders wil testen, zal er eerst het patroon 1000 in de SIPO registers geschoven worden. Terwijl dit gebeurt zal een patroon met gelijke lengte uit de PISO registers geschoven worden. De eerste keer zal dit patroon nog onnodig zijn. Daarna willen we de volgende pin hoog zetten en het resultaat van de vorige inlezen. Door 0100 in te schuiven en terwijl de binnenkomende transactie in te lezen kun je weten welke aders verbonden zijn. Als je ze apart zou sturen dan moet je, na eerst de SIPO te vullen met het volledige patroon 1000, enkel maar de hoog bit maar één positie schuiven per ader. Natuurlijk moet er dan wel het volledige patroon uit de PISO gelezen worden voor je de bit verschuift.
+Als je bijvoorbeeld een kabel van 4 aders wil testen, zal er eerst het patroon 1000 in de \gls{SIPO} registers geschoven worden. Terwijl dit gebeurt zal een patroon met gelijke lengte uit de \gls{PISO} registers geschoven worden. De eerste keer zal dit patroon nog onnodig zijn. Daarna willen we de volgende pin hoog zetten en het resultaat van de vorige inlezen. Door 0100 in te schuiven en terwijl de binnenkomende transactie in te lezen kun je weten welke aders verbonden zijn. Als je ze apart zou sturen dan moet je, na eerst de \gls{SIPO} te vullen met het volledige patroon 1000, enkel maar de hoog bit maar één positie schuiven per ader. Natuurlijk moet er dan wel het volledige patroon uit de \gls{PISO} gelezen worden voor je de bit verschuift.
 
 \subsection{\IfLanguageName{dutch}{I2C/SPI port expanders}{}} 
 \label{ssec:portexpanders}
 
-Een andere optie is gebruik te maken van I2C of SPI port expanders. Hierbij kun je een bus creëren met twee (I2C) of vier (SPI) pinnen die deze chips aan elkaar binden om zo een ketting te creëren van aanspreekbare pinnen. Bijvoorbeeld we kunnen de MCP23017 \autocite{Microchip2016} verbinden in een ketting via I2C. Dit kan tot een maximum van 8 chips aangezien enkel de drie LSB bits van hun adressen variabel zijn met dus in totaal 128 aanspreekbare pinnen. Op die manier kan je een pin configureren als uitgang en hoog maken terwijl alle rest van de pinnen als ingang staan. Hiermee kunnen dan alle andere aders getest worden en ziet de port expander welke draden het hoog signaal ontvangen. Het grootste nadeel aan het gebruik van port expanders is dat het veel transacties nodig heeft wat dus de totale test tijd zal beïnvloeden.
+Een andere optie is gebruik te maken van \gls{I2C} of \gls{SPI} port expanders. Hierbij kun je een bus creëren met twee (\gls{I2C}) of vier (\gls{SPI}) pinnen die deze chips aan elkaar binden om zo een ketting te creëren van aanspreekbare pinnen. Bijvoorbeeld we kunnen de MCP23017 \autocite{Microchip2016} verbinden in een ketting via \gls{I2C}. Dit kan tot een maximum van acht chips aangezien enkel de drie LSB bits van hun adressen variabel zijn met dus in totaal 128 aanspreekbare pinnen. Op die manier kan je een pin configureren als uitgang en hoog maken terwijl alle rest van de pinnen als ingang staan. Hiermee kunnen alle andere aders getest worden, waarna de microcontroller via de port expander uitleest welke draden het hoge signaal ontvangen. Het grootste nadeel aan het gebruik van port expanders is de hogere kostprijs en dat er veel transacties nodig zijn. Hoewel dit de totale testtijd beïnvloedt, blijft deze nog steeds onder één seconde, wat voor de operator een verwaarloosbaar verschil is.
 
 \subsection{\IfLanguageName{dutch}{Multiplexer ICs}{}} 
 \label{ssec:multiplexeric}
 
 Als laatste hebben we multiplexers en demultiplexers \autocite{NationalInstruments2022}. Deze kun je indelen met demultiplexers aan de kant van de ingangen en de multiplexers aan de uitgangen. Als je een hoge spanning plaatst op de ingang van een of meerdere demultiplexers, kan je een interne lijn hoog zetten. Als je klaar bent met deze ader kan je de demultiplexers schakelen zodat hij de volgende hoog zet. Op dezelfde manier maar in de andere richting kun je multiplexers gebruiken om, wanneer een bepaalde lijn hoog staat, een voor een alle andere uitgangen in te lezen om te kijken welke draden ook een hoog signaal uitsturen.
 
-Deze manier is echter moeilijk achteraf uit te breiden als je een grotere kabel zou willen testen omdat ze niet eenvoudig achter elkaar kunnen geschakeld worden zoals bij de schuifregisters of de crosspoint matrix. Daarnaast heb je ook meer GPIO pinnen nodig om de multiplexers te sturen afhankelijk van hoeveel aders er zijn. Dit kan snel oplopen.
+Deze manier is echter moeilijk achteraf uit te breiden als je een grotere kabel zou willen testen omdat ze niet eenvoudig achter elkaar kunnen geschakeld worden zoals bij de schuifregisters of de \textit{crosspoint matrix}. Daarnaast heb je ook meer \gls{GPIO} pinnen nodig om de multiplexers te sturen afhankelijk van hoeveel aders er zijn. Dit kan snel oplopen.
 
-\section{\IfLanguageName{dutch}{Bestaande kabeltesters}{}} 
+\section{\IfLanguageName{dutch}{Kabeltesters}{}} 
 \label{sec:bestaandekabeltesters}
 
-Zoals vermeld in de inleiding zijn er al kabeltesters beschikbaar op de markt. Deze commerciële tester focussen echter meer op bekende kabelboomarchitecturen en grotere kabelboombundels. Daarom kan dit een uitdaging zijn voor op maat gemaakte kabels\autocite{Khouri2021}. Dit creëert de vraag naar aanpasbare kabeltesters voor dat soort kabels. Enkele voorbeelden van populaire commerciële opties:
+Zoals vermeld in de inleiding zijn er al kabeltesters beschikbaar op de markt. Enkele voorbeelden van populaire commerciële opties:
 
 \subsection{\IfLanguageName{dutch}{CableEye® van CAMI}{}} 
 \label{ssec:CableEye}
@@ -165,7 +163,52 @@ MK Test Systems richt zich specifiek op het \textit{high-end} segment van de mar
 
 Het Duitse WEETECH is gespecialiseerd in industriële testsystemen die vaak direct worden geïntegreerd in geautomatiseerde productielijnen of specifieke testtafels (\textit{testbenches}), voornamelijk binnen de automotive- en spoorwegsector. Systemen zoals de W 434 en W 454 zijn modulair opgebouwd en geoptimaliseerd voor snelle \textit{high-voltage} isolatietesten en nauwkeurige componentmetingen. De software-architectuur van WEETECH is zo ontworpen dat deze direct kan communiceren met klantspecifieke ERP-systemen en productiedatabases, wat zorgt voor een sluitende traceerbaarheid binnen de kwaliteitsborging van het productieproces \autocite{Weetech2025}.
 
-\section{\IfLanguageName{dutch}{Wireviz}{}} 
-\label{sec:wireviz}
+\subsection{\IfLanguageName{dutch}{Tester op maat}{}} 
+\label{ssec:TesterOpMaat}
 
-Om van de bitpatronen een visueel kabel diagram te maken kunnen we gebruik maken van Wireviz. Op basis van een YAML file creëert het een foto of HTML bestand waarop draden verbonden zijn met hun connectors. Dit doet het met behulp van GraphViz \autocite{Wireviz2024}.
+Deze commerciële testers focussen echter meer op bekende kabelboomarchitecturen en grotere kabelboombundels. Daarom kan dit een uitdaging zijn voor op maat gemaakte kabels\autocite{Khouri2021} en kosteneffectief te zijn. Dit creëert de vraag naar aanpasbare kabeltesters voor dat soort kabels. Hiervoor kun je vaak bij de producent van de kabel terecht die aan een hoge prijs een tester op maat. De kost ligt hoog omdat deze gepersonaliseerde tester vanaf de grond af wordt ontworpen. De Qity kabeltester zou enkel een nieuw \textit{interconnection board} vereisen waardoor de totale kostprijs lager zal liggen.
+
+\section{\IfLanguageName{dutch}{Kabel diagrammen}{}} 
+\label{sec:KabelDiagrammen}
+
+Kabeldiagrammen (of kabelboomtekeningen) spelen een cruciale rol binnen de systeemdocumentatie. Ze visualiseren niet alleen hoe afzonderlijke componenten elektrisch met elkaar verbonden zijn, maar tonen ook de fysieke lay-out, connectortypen, aderdiktes (AWG), kleuren en eventuele afscherming (shields). Zonder accurate kabeldiagrammen wordt het assembleren, debuggen en onderhouden van complexe elektronische systemen al snel een onoverzichtelijke puzzel. Het doel van dit hoofdstuk is om inzicht te geven in de methodologieën en tools waarmee deze diagrammen efficiënt, foutloos en reproduceerbaar gegenereerd kunnen worden.
+
+
+\subsection{\IfLanguageName{dutch}{WireViz}{}} 
+\label{ssec:wireviz}
+
+Om van de bitpatronen automatisch een visueel kabel diagram te maken kunnen we gebruik maken van Wireviz. Op basis van een \gls{YAML} file creëert het een foto- of HTML bestand waarop draden verbonden zijn met hun connectors. Dit doet het met behulp van GraphViz \autocite{Wireviz2024}.
+
+De kracht van WireViz ligt in het feit dat het 'Docs-as-Code' principe wordt toegepast op hardware-assemblage. In plaats van handmatig lijnen te trekken in een grafisch programma, definieert de ontwerper de topologie in een mensvriendelijk en gestructureerd tekstbestand. Een typisch WireViz-bestand is opgebouwd uit drie fundamentele bouwstenen:
+
+\begin{itemize}
+    
+    \item \textbf{Connectors:} Hierin worden de fysieke stekkers gedefinieerd, inclusief het aantal pinnen, fabrikantonderdelen en optionele labels per pin.
+    
+    \item \textbf{Cables:} Hierin worden de fysieke kabels of losse draden gespecificeerd, inclusief het aantal aders, kleurcoderingen, aderdikte (gauge) en buitenmantels of afscherming.
+    
+    \item \textbf{Connections:} Dit is de verbindingsmatrix die expliciet beschrijft welke pin van een specifieke connector via welke ader van een kabel verbonden is met een pin op de doelconnector.
+    
+\end{itemize}
+
+Naast de puur visuele vectorafbeelding (SVG of PNG) genereert WireViz automatisch een \textit{Bill of Materials} (BOM) en overzichtelijke bedradingstabellen. Omdat de bronbestanden platte tekst zijn, leent WireViz zich uitstekend voor versiebeheer via Git. 
+
+
+\section{\IfLanguageName{dutch}{Conclusie en gekozen oplossing}{Conclusion and chosen solution}}%
+\label{sec:conclusie-conceptueel}
+
+Als microcontroller werd de \textbf{ESP32-S3} van Espressif gekozen. Hoewel de RP2350 en STM32 technisch sterke kandidaten zijn voor een kabeltester zonder draadloze functionaliteit, biedt de ESP32-S3 een doorslaggevend praktisch voordeel: de uitgebreide ondersteuning via \gls{ESP-IDF} en de ingebouwde Wi-Fi- en BLE-ondersteuning maken het systeem toekomstbestendig voor draadloze \gls{MES}-integratie zonder een hardwarewijziging te vereisen.
+
+Als kabeltesttechniek werden schuifregisters gekozen, meer bepaald een \textit{expansion board} met vier paren van \gls{SIPO}- en \gls{PISO}-schuifregisters. Deze keuze is gemotiveerd door de eenvoudige schaalbaarheid, extra \textit{expansion boards} kunnen in serie worden geschakeld, en de lage kostprijs in vergelijking met \textit{crosspoint matrices} en \textit{port expanders}. Multiplexers vallen af omwille van de beperkte uitbreidbaarheid.
+
+De communicatie tussen de kabeltester en het \gls{MES} verloopt via een seriële \acrshort{UART}-verbinding over USB. Oorspronkelijk werd \gls{MQTT} over Wi-Fi overwogen als communicatieprotocol, maar omwille van de eenvoud van implementatie en de betrouwbaarheid van een bedrade verbinding in een productieomgeving werd uiteindelijk gekozen voor een seriële verbinding.
+
+Voor de visuele voorstelling van de testresultaten wordt \textbf{WireViz} ingezet. Op basis van de uitgelezen bitpatronen genereert dit hulpmiddel automatisch kabeldiagrammen die de operator toelaten om de referentiebedrading visueel te vergelijken met de geteste kabel.
+
+De praktische uitwerking van deze keuzes is als volgt opgedeeld:
+\begin{itemize}
+    \item In Sectie~\ref{sec:PCB} wordt het hardware-ontwerp besproken: het \textit{controller board} met de ESP32-S3 
+    (Sectie~\ref{ssec:controllerboard}), het \textit{expansion board} met de shift registers (Sectie~\ref{ssec:expansionboard}) en het kabelspecifieke \textit{interconnection board} (Sectie~\ref{ssec:interconnectionboard}).
+    \item In Sectie~\ref{sec:CTStandalone} wordt de standalone werking uitgewerkt, waarbij een kabel getest wordt aan de hand van een opgeslagen referentiepatroon met visuele LED-indicatie.
+    \item In Sectie~\ref{sec:CTMES} wordt de \gls{MES}-integratie besproken: de seriële communicatie, de Python-implementatie en de generatie van WireViz-diagrammen.
+\end{itemize}

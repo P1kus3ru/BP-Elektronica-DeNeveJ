@@ -5,16 +5,30 @@
 \chapter{\IfLanguageName{dutch}{Inleiding}{Introduction}}%
 \label{ch:inleiding}
 
-%De inleiding moet de lezer net genoeg informatie verschaffen om het onderwerp te begrijpen en in te zien waarom de onderzoeksvraag de moeite waard is om te onderzoeken. In de inleiding ga je literatuurverwijzingen beperken, zodat de tekst vlot leesbaar blijft. Je kan de inleiding verder onderverdelen in secties als dit de tekst verduidelijkt. Zaken die aan bod kunnen komen in de inleiding~\autocite{Pollefliet2011}:
+Het doel van deze bachelorproef is het ontwerpen en implementeren van een universele kabeltester die geïntegreerd is met het \gls{MES} van Qity. De centrale onderzoeksvraag luidt: \textit{Hoe kan een schaalbare, kostenefficiënte kabeltester worden ontwikkeld die op maat gemaakte kabels verifieert en de testresultaten via het MES opslaat voor volledige traceerbaarheid?}
 
-Parallel aan deze bachelorproef mocht ik stage lopen bij Qity, uitgesproken als het Engelse woord 'kitty', uit Erpe-Mere. Zij zijn een gespecialiseerd consultancy bureau actief in QARA, compliance, traceability en procesversnelling voor de medische en industriële sector. De kerntaken van hun team omvatten het ontwikkelen van een QMS gebaseerd op het Atlassian ecosystem met daarnaast ook het uitvoeren van services: EMC- en safety-testen, en hardware, firmware en software design conform met de productafhankelijke regelgeving. Het ontwikkelde QMS vergemakkelijkt het ontwikkelen van producten conform de ISO 13485-, IEC 60601 normen, CE/FCC-certificering en andere regelgeving, waarbij volledige traceerbaarheid wordt gewaarborgd via een geïntegreerd Altium 365-Jira-ecosysteem. Dit ecosysteem automatiseert design control, formele reviews, revisiecontrole en componentenvalidatie, waardoor fouten worden vermeden en engineering wordt versneld. 
+Parallel aan deze bachelorproef werd een stage uitgevoerd bij Qity, uitgesproken als het Engelse woord 'kitty', uit Erpe-Mere. Qity is een gespecialiseerd consultancy bureau actief in \gls{QARA}, compliance, traceability en procesversnelling voor de medische en industriële sector. 
 
-Qity ontwikkelde hun MES, \textit{Manufacturing Execution System}, dat automatisering eenvoudiger maakt. Hierbij worden taken digitaal gevolgd met verwachte invoer en precieze handleidingen die heel wat menselijke fouten uit het kwestie haalt. Dit kan gecombineerd worden met hun iQMS, \textit{interactive Quality Management System}, dat alle processen stroomlijnt binnen het Atlassian-ecosysteem. Dit bestaat onder andere uit Confluence voor alle documenten, Bitbucket voor code en Jira voor de organisatie van activiteiten en taken. Deze zijn allemaal aan elkaar verbonden en zoveel mogelijk geautomatiseerd zodat het manueel werk onnodig maakt. Al deze functies samen zorgen voor een goede traceerbaarheid wat heel belangrijk is bij hun medische partners en klanten\autocite{Qity2026}.
+De kerntaken van hun team omvatten het ontwikkelen van een \gls{QMS} gebaseerd op het Atlassian-ecosysteem met daarnaast ook het uitvoeren van services: EMC- en safety-testen, en hardware, firmware en software design conform met de productafhankelijke regelgeving. 
 
-Een van hun partners, Trince, heeft een product genaamd LumiPore\autocite{Trince2026}. Aan de hand van een laser kan dit toestel het celmembraan opensnijden waarna er stoffen in de cel kunnen worden geïnjecteerd. In het toestel maken ze gebruik van een op maat gemaakte kabel die onder andere de laser stuurt. De optische engine van het toestel is zeer complex en heeft nood aan zeer fijne toleranties, dus kabels die geassembleerd zijn maar nadien niet blijken te werken zorgen voor veel problemen en kosten tijdens de productie. Om te controleren of hun kabels nog correct gemaakt zijn, is de expertise van Qity ingeschakeld om een kabeltester te ontwerpen die gelinkt is aan het MES systeem voor traceability.
+Het ontwikkelde \gls{QMS} vergemakkelijkt het ontwikkelen van producten conform de \acrshort{ISO} 13485-, \acrshort{IEC} 60601 normen, \acrshort{CE}/\acrshort{FCC}-certificering en andere regelgeving, waarbij volledige traceerbaarheid wordt gewaarborgd via een geïntegreerd ecosystemen, zoals het Altium 365-Jira-ecosysteem dat voor de ontwikkeling van de kabeltester gebruikt werd. Dit ecosysteem automatiseert design control, formele reviews, revisiecontrole en componentenvalidatie, waardoor fouten worden vermeden en engineering wordt versneld. 
 
-Het concept van een kabeltester is niet nieuw. Voor de alledaagse en universele kabeltypes bestaan er meerdere. Dit is echter niet het geval voor een op maat gemaakte kabel. Daar kan ook een bijbehorende kabeltester gemaakt worden maar aan een hoge kost. Daarom is het doel om een universele kabeltester te ontwikkelen waar na aankoop enkel een nieuw I/O-bord moet ontworpen worden voor nieuwe kabels.
+Qity ontwikkelde naast een \gls{QMS}, ook een MES, dat automatisering eenvoudiger maakt. Hierbij worden taken digitaal gevolgd met verwachte invoer en precieze handleidingen die menselijke fouten minimaliseren. Dit kan gecombineerd worden met hun \gls{iQMS}, dat alle processen stroomlijnt binnen het Atlassian-ecosysteem bestaande onder andere uit Confluence voor alle documenten, Bitbucket voor code en Jira voor taakbeheer. Deze zijn allemaal aan elkaar verbonden en zo veel mogelijk geautomatiseerd zodat het manueel werk overbodig maakt. Al deze functies samen zorgen voor een goede traceerbaarheid wat heel belangrijk is bij hun medische partners en klanten\autocite{Qity2026}.
 
+Een van de partners van Qity, Trince, heeft een product genaamd LumiPore\autocite{Trince2026}. Aan de hand van een laser kan dit toestel het celmembraan opensnijden waarna er stoffen in de cel kunnen worden geïnjecteerd. In het toestel wordt gebruik gemaakt van een op maat gemaakte kabel die onder andere de laser stuurt. De optische engine van het toestel is zeer complex en heeft nood aan zeer fijne toleranties, dus kabels die geassembleerd zijn maar achteraf niet blijken te werken zorgen voor veel problemen en kosten tijdens de productie. Om te controleren of hun kabels correct gemaakt zijn, is de expertise van Qity ingeschakeld om een kabeltester te ontwerpen die gelinkt is aan het MES systeem voor traceerbaarheid.
+
+Het concept van een kabeltester is niet nieuw. Voor de alledaagse en algemene kabeltypes bestaan er meerdere. Dit is echter niet het geval voor een op maat gemaakte kabel. Daar kan ook een bijbehorende kabeltester gemaakt worden maar aan een hoge kost. De gewenste eindsituatie is daarom een universele kabeltester waarbij alleen een nieuw \textit{interconnection board} ontworpen moet worden bij een nieuw kabeltype, en waarbij testresultaten automatisch worden opgeslagen in het \gls{QMS} voor traceerbaarheid.
+
+Om de onderzoeksvraag concreet te maken, worden de volgende vereisten opgesteld:
+
+\begin{itemize}
+    \item \textbf{Foutdetectie:} de tester detecteert minstens drie toestanden: correcte verbindingen, ontbrekende verbindingen en kortsluitingen.
+    \item \textbf{Schaalbaarheid:} het systeem is uitbreidbaar naar kabels met maximaal 256 connector pinnen via het koppelen van meerdere \textit{expansion boards}.
+    \item \textbf{MES-integratie:} testresultaten worden doorgestuurd naar het MES en opgeslagen in het \gls{QMS} voor volledige traceerbaarheid.
+    \item \textbf{Gebruiksvriendelijkheid:} de tester is bruikbaar met MES-verbinding of zonder via een standalone modus met visuele LED-indicatie.
+\end{itemize}
+
+Om deze doelstellingen te bereiken, wordt eerst een literatuurstudie uitgevoerd naar bestaande kabeltesters en geschikte testmethoden. Op basis hiervan wordt een hardwareontwerp uitgewerkt met shift registers als schaalmechanisme. De MES-integratie wordt gerealiseerd via een Python-pakket. Op het einde wordt het systeem gevalideerd aan de hand van een concrete kabel van Trince.
 
 Deze bachelorproef is als volgt opgebouwd:
 
@@ -22,6 +36,4 @@ In Hoofdstuk~\ref{ch:conceptuele-oplossing} wordt een overzicht gegeven van de s
 
 In Hoofdstuk~\ref{ch:methodologie} wordt de praktische uitwerking toegelicht en worden de gebruikte onderzoekstechnieken besproken om een antwoord te kunnen formuleren op de onderzoeksvragen.
 
-% TODO: Vul hier aan voor je eigen hoofstukken, één of twee zinnen per hoofdstuk
-
-In Hoofdstuk~\ref{ch:conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein.
+Tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein.
