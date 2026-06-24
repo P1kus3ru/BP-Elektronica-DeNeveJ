@@ -1,37 +1,17 @@
 %%=============================================================================
-%% Samenvatting
+%%    Samenvatting
 %%=============================================================================
 
-% TODO: De "abstract" of samenvatting is een kernachtige (~ 1 blz. voor een
-% thesis) synthese van het document.
-%
-% Een goede abstract biedt een kernachtig antwoord op volgende vragen:
-%
-% 1. Waarover gaat de bachelorproef?
-% 2. Waarom heb je er over geschreven?
-% 3. Hoe heb je het onderzoek uitgevoerd?
-% 4. Wat waren de resultaten? Wat blijkt uit je onderzoek?
-% 5. Wat betekenen je resultaten? Wat is de relevantie voor het werkveld?
-%
-% Daarom bestaat een abstract uit volgende componenten:
-%
-% - inleiding + kaderen thema
-% - probleemstelling
-% - (centrale) onderzoeksvraag
-% - onderzoeksdoelstelling
-% - methodologie
-% - resultaten (beperk tot de belangrijkste, relevant voor de onderzoeksvraag)
-% - conclusies, aanbevelingen, beperkingen
-%
-% LET OP! Een samenvatting is GEEN voorwoord!
+%    Maak een samenvatting van de bachelorproef, voorstudie, praktische uitwerking en algemeen besluit. Wik
+%    en weeg jouw woorden heel goed, schrijf en herschrijf ze want het is voor de lezer de eerste en belangrijkste
+%    kennismaking met jouw bachelorproef.
+%    Gebruik voor het samenstellen van de abstract de regels voor de informatieve abstract van het boek
+%    “Rapporteren voor technici”
 
-%%---------- Nederlandse samenvatting -----------------------------------------
-%
-% TODO: Als je je bachelorproef in het Engels schrijft, moet je eerst een
-% Nederlandse samenvatting invoegen. Haal daarvoor onderstaande code uit
-% commentaar.
-% Wie zijn bachelorproef in het Nederlands schrijft, kan dit negeren, de inhoud
-% wordt niet in het document ingevoegd.
+%    Dit abstract zal je niet alleen nodig hebben in je bachelorproef zelf. De hogeschool zal alle samenvattingen
+%    per afdeling bundelen, wat een extra bron van informatie biedt voor latere laatstejaarsstudenten. Om deze
+%    reden moet je samenvatting gelijkvormig zijn. Je zal dit abstract ook inhoudelijk nodig hebben als
+%    samenvatting om je eindwerk te kunnen opladen op KULoket.
 
 \IfLanguageName{english}{%
 \selectlanguage{dutch}
@@ -40,16 +20,8 @@
 }{}
 
 %%---------- Samenvatting -----------------------------------------------------
-% De samenvatting in de hoofdtaal van het document
 
 \chapter*{\IfLanguageName{dutch}{Abstract}{Abstract}}
 
-A universal cable tester integrated with a \gls{MES} from Qity, a consultancy firm specialising in quality, regulatory affairs, and traceability for the medical and industrial sector,  was designed and implemented to test and trace the assembly of (medical) cables.
+Write your Abstract here.
 
-The project was initiated by the need of Qity's partner Trince to verify custom-built cables. Since commercial cable testers are not often suited for custom cable assemblies, the goal was to develop a modular, low-cost tester that can be adapted to new cable types by designing only a new interconnection board.
-
-The cable tester consists of three printed circuit boards: a controller board housing an ESP32-S3 microcontroller, an expansion board containing shift register chains (74HC4094 \gls{SIPO} and HEF4021B \gls{PISO}), and a cable-specific interconnection board. The method chosen is the use of shift registers for its scalability and simplicity. The device can be used in two ways: standalone in which an operator tests a cable against a stored golden sample using the external LEDs, or integrated with \gls{MES} where test results are communicated over a serial interface and stored in the \gls{QMS} for full traceability.
-
-The \gls{MES} integration is realised through a Python package that sends commands to the cable tester, decodes the returned bit patterns, and generates cable diagrams with the help of WireViz. These diagrams allow the operator to visually compare the reference wiring with the tested cable, using colour-coded indicators for correct connections, missing connections, and short circuits.
-
-The system was tested using a cable from Trince and is currently deployed in four units at their facility. Remaining limitations include unresolved signal integrity issues when chaining multiple expansion boards, and the absence of a Power-On Self-Test routine. Future work includes redesigning the controller board, resolving the daisy-chain signal integrity problems, and improving the readability of the generated WireViz diagrams.

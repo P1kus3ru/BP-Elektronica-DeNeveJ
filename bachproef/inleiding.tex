@@ -2,38 +2,133 @@
 %% Inleiding
 %%=============================================================================
 
+%    In de inleiding verwoord je eerst het exacte onderzoeksonderwerp, zodat de lezer nadien weet waarover het
+%    zal gaan in dit werk; dit is in feite een zeer uitgebreid uitschrijven van de titel. Dit gaat meestal via de volgende
+%    vragen:
+%     Wat is de beginsituatie?
+%     Wat zal er precies bestudeerd worden?
+%     Welke deelaspecten moeten er bekeken worden?
+%     Wat zijn de eisen van de opdrachtgever?
+%     Zijn er beperkingen? (Kostprijs, technische randvoorwaarden, tijdsbesteding, veiligheid, …)
+%    De bedoeling is dat je voldoende achtergrondinformatie geeft zodat de lezer van je boek de rest van je verhaal
+%    kan volgen.
+
+%    Daarna kan je een aantal conceptuele oplossingsmethodes oplijsten waaraan je je project kan ophangen. De
+%    uitwerking van deze oplossingsmethodes is echter voor de volgende hoofdstukken.
+%    Enkele goede voorbeelden zijn te vinden in “Rapporteren voor technici” pg. 76 tot 80
+
 \chapter{\IfLanguageName{dutch}{Inleiding}{Introduction}}%
 \label{ch:inleiding}
 
-Het doel van deze bachelorproef is het ontwerpen en implementeren van een universele kabeltester die geïntegreerd is met het \gls{MES} van Qity. De centrale onderzoeksvraag luidt: \textit{Hoe kan een schaalbare, kostenefficiënte kabeltester worden ontwikkeld die op maat gemaakte kabels verifieert en de testresultaten via het MES opslaat voor volledige traceerbaarheid?}
+In de inleiding verwoord je eerst het exacte onderzoeksonderwerp, zodat de lezer nadien weet waarover het zal gaan in dit werk; dit is in feite een zeer uitgebreid uitschrijven van de titel. Dit gaat meestal via de volgende vragen:
+\begin{itemize}[]
+    \item Wat is de beginsituatie?
+    \item Wat zal er precies bestudeerd worden?
+    \item Welke deelaspecten moeten er bekeken worden?
+    \item Wat zijn de eisen van de opdrachtgever?
+    \item Zijn er beperkingen? (Kostprijs, technische randvoorwaarden, tijdsbesteding, veiligheid, …)
+\end{itemize}
+De bedoeling is dat je voldoende achtergrondinformatie geeft zodat de lezer van je boek de rest van je verhaal
+kan volgen.
 
-Parallel aan deze bachelorproef werd een stage uitgevoerd bij Qity, uitgesproken als het Engelse woord 'kitty', uit Erpe-Mere. Qity is een gespecialiseerd consultancy bureau actief in \gls{QARA}, compliance, traceability en procesversnelling voor de medische en industriële sector. 
+Daarna kan je een aantal conceptuele oplossingsmethodes oplijsten waaraan je je project kan ophangen. De
+uitwerking van deze oplossingsmethodes is echter voor de volgende hoofdstukken.
+Enkele goede voorbeelden zijn te vinden in “Rapporteren voor technici” pg. 76 tot 80
 
-De kerntaken van hun team omvatten het ontwikkelen van een \gls{QMS} gebaseerd op het Atlassian-ecosysteem met daarnaast ook het uitvoeren van services: EMC- en safety-testen, en hardware, firmware en software design conform met de productafhankelijke regelgeving. 
+\chapter{\IfLanguageName{dutch}{Latex tips}{}}%
+\label{ch:lt}
 
-Het ontwikkelde \gls{QMS} vergemakkelijkt het ontwikkelen van producten conform de \acrshort{ISO} 13485-, \acrshort{IEC} 60601 normen, \acrshort{CE}/\acrshort{FCC}-certificering en andere regelgeving, waarbij volledige traceerbaarheid wordt gewaarborgd via een geïntegreerd ecosystemen, zoals het Altium 365-Jira-ecosysteem dat voor de ontwikkeling van de kabeltester gebruikt werd. Dit ecosysteem automatiseert design control, formele reviews, revisiecontrole en componentenvalidatie, waardoor fouten worden vermeden en engineering wordt versneld. 
+Dit is een hoofdstuk voor latex formatting die ik zelf vaak moest opzoeken. Je kan dit hoofdstuk in commentaar zetten of verwijderen wanneer je het niet meer nodig hebt. Deze chapter staat gedefinieerd in het 'inleiding.tex' bestand. Voor het schrijven maakte ik gebruik van het programma texstudio.
 
-Qity ontwikkelde naast een \gls{QMS}, ook een MES, dat automatisering eenvoudiger maakt. Hierbij worden taken digitaal gevolgd met verwachte invoer en precieze handleidingen die menselijke fouten minimaliseren. Dit kan gecombineerd worden met hun \gls{iQMS}, dat alle processen stroomlijnt binnen het Atlassian-ecosysteem bestaande onder andere uit Confluence voor alle documenten, Bitbucket voor code en Jira voor taakbeheer. Deze zijn allemaal aan elkaar verbonden en zo veel mogelijk geautomatiseerd zodat het manueel werk overbodig maakt. Al deze functies samen zorgen voor een goede traceerbaarheid wat heel belangrijk is bij hun medische partners en klanten\autocite{Qity2026}.
+\section{\IfLanguageName{dutch}{Citeren en literatuur lijst}{}}%
+\label{sec:citeren}
 
-Een van de partners van Qity, Trince, heeft een product genaamd LumiPore\autocite{Trince2026}. Aan de hand van een laser kan dit toestel het celmembraan opensnijden waarna er stoffen in de cel kunnen worden geïnjecteerd. In het toestel wordt gebruik gemaakt van een op maat gemaakte kabel die onder andere de laser stuurt. De optische engine van het toestel is zeer complex en heeft nood aan zeer fijne toleranties, dus kabels die geassembleerd zijn maar achteraf niet blijken te werken zorgen voor veel problemen en kosten tijdens de productie. Om te controleren of hun kabels correct gemaakt zijn, is de expertise van Qity ingeschakeld om een kabeltester te ontwerpen die gelinkt is aan het MES systeem voor traceerbaarheid.
+De literatuur lijst wordt automatisch opgebouwd op basis van het '.bib' bestand dat in het project zit. Je kan iets citeren met het commando 'autocite'. Zie voorbeeld bij sectie \ref{ssec:figuren}. Om het .bib aan te vullen maakte ik gebruik van Jabref maar andere opties kunnen ook werken. Wanneer je een bron toevoegt moet je eerst de pdf builden dan met f8 (in texstudio) de biber uitvoeren en vervolgens nogmaals bouwen.
 
-Het concept van een kabeltester is niet nieuw. Voor de alledaagse en algemene kabeltypes bestaan er meerdere. Dit is echter niet het geval voor een op maat gemaakte kabel. Daar kan ook een bijbehorende kabeltester gemaakt worden maar aan een hoge kost. De gewenste eindsituatie is daarom een universele kabeltester waarbij alleen een nieuw \textit{interconnection board} ontworpen moet worden bij een nieuw kabeltype, en waarbij testresultaten automatisch worden opgeslagen in het \gls{QMS} voor traceerbaarheid.
+\section{\IfLanguageName{dutch}{Het gebruik maken van koppen in Latex}{}}%
+\label{sec:koppen}
 
-Om de onderzoeksvraag concreet te maken, worden de volgende vereisten opgesteld:
+Je kunt je bachelorproef onderverdelen in verschillende koppen de hierachie hievan is als volgt:
 
-\begin{itemize}
-    \item \textbf{Foutdetectie:} de tester detecteert minstens drie toestanden: correcte verbindingen, ontbrekende verbindingen en kortsluitingen.
-    \item \textbf{Schaalbaarheid:} het systeem is uitbreidbaar naar kabels met maximaal 256 connector pinnen via het koppelen van meerdere \textit{expansion boards}.
-    \item \textbf{MES-integratie:} testresultaten worden doorgestuurd naar het MES en opgeslagen in het \gls{QMS} voor volledige traceerbaarheid.
-    \item \textbf{Gebruiksvriendelijkheid:} de tester is bruikbaar met MES-verbinding of zonder via een standalone modus met visuele LED-indicatie.
+\begin{itemize}[]
+    \item \textbf{Chapter}: Krijgt een nieuwe pagina met een nummer
+    \item \textbf{Section}: Krijgt een nummer en verschijnt in de inhoudstafel, maar start niet op een nieuwe pagina
+    \item \textbf{Subsection}: Krijgt eveneens een nummer en verschijnt in de inhoudstafel, ondergeschikt aan een section
+    \item \textbf{Subsubsection}: Krijgt geen nummer en verschijnt niet in de inhoudstafel, staat wel nog in het kop kleur;
+    \item \textbf{Paragraph}: Krijgt geen nummer meer en verschijnt niet in inhoudstafel, is in het zwart
 \end{itemize}
 
-Om deze doelstellingen te bereiken, wordt eerst een literatuurstudie uitgevoerd naar bestaande kabeltesters en geschikte testmethoden. Op basis hiervan wordt een hardwareontwerp uitgewerkt met shift registers als schaalmechanisme. De MES-integratie wordt gerealiseerd via een Python-pakket. Op het einde wordt het systeem gevalideerd aan de hand van een concrete kabel van Trince.
+\subsection{\IfLanguageName{dutch}{Dit is een subsection}{}}%
+\label{ssec:subsection}
 
-Deze bachelorproef is als volgt opgebouwd:
+\subsubsection{\IfLanguageName{dutch}{Dit is een subsubsection}{}}%
 
-In Hoofdstuk~\ref{ch:conceptuele-oplossing} wordt een overzicht gegeven van de stand van zaken binnen het onderzoeksdomein, op basis van een literatuurstudie.
+Een subsubsection en paragraaf geef ik geen label want als je er naar zou refereren zou het verwijzen naar de laatst genummerde kop, ssec:subsection in dit geval.
 
-In Hoofdstuk~\ref{ch:methodologie} wordt de praktische uitwerking toegelicht en worden de gebruikte onderzoekstechnieken besproken om een antwoord te kunnen formuleren op de onderzoeksvragen.
+\paragraph{\IfLanguageName{dutch}{Dit is een paragraph}{}}%
 
-Tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein.
+
+
+\section{\IfLanguageName{dutch}{Toevoegen van figuren, tabellen en codefragmenten}{}}%
+\label{sec:fig&cf}
+
+\paragraph{\IfLanguageName{dutch}{Figuren}{}}%
+\label{ssec:figuren}
+
+Voorbeeld figuur (Figuur \ref{fig:VoorbeeldFiguur})\autocite{Astley2009}. Deze figuur heeft het '\textit{centering}' commando dat ervoor zorgt dat deze gecentreerd is tov de breedte. Daarnaast is de \textit{width} ingesteld op 80\% van de breedte van de tekst. De plaats waar je je afbeeldingen kan plaatsen is in de graphics folder in de project root.
+
+Latex kiest de locatie van een figuur (of tabel) op basis van wat er tussen de vierkante haakjes staat. Deze letters mogen ook gecombineerd worden, bv. '\textit{[!ht]}' betekent: probeer eerst bovenaan de pagina, anders hier:
+\begin{itemize}[]
+    \item \textbf{h} (here): De figuur komt ongeveer op deze plaats in de tekst, op voorwaarde dat er voldoende ruimte is
+    \item \textbf{t} (top): De figuur komt bovenaan de eerst volgende pagina te staan waar er ruimte beschikbaar is
+    \item \textbf{b} (bottom): De figuur komt onderaan de pagina te staan waar er ruimte beschikbaar is
+    \item \textbf{p} (page): De figuur komt op een apart blad te staan, samen met eventuele andere figuren/tabellen, gescheiden van de lopende tekst
+    \item \textbf{H}: Forceert dat de figuur exact komt te staan waar ze in de broncode staat. Vereist het pakket '\textit{float}' (dit wordt in dit document reeds gebruikt, zie \ref{ssec:codefragmenten})
+    \item \textbf{!}: Geen echte locatie, maar een modifier die de interne esthetische regels van Latex (bv. max. aantal figuren per pagina) negeert. Wordt steeds samen met een andere letter gebruikt, bv. '\textit{!h}'
+\end{itemize}
+
+\begin{figure}[!h]
+    \centering
+    \captionsetup{width=0.8\textwidth}
+    \includegraphics[width=0.8\textwidth]{VoorbeeldFiguur.png}
+    \caption[Voorbeeld figuur (naam voor lijst van figuren)]{Dit is een figuur als voorbeeld}
+    \label{fig:VoorbeeldFiguur} 
+\end{figure}
+
+
+\paragraph{\IfLanguageName{dutch}{Tabellen}{}}%
+\label{ssec:tabellen}
+
+Een tabel (Tabel \ref{tab:VoorbeeldTabel}) wordt op een gelijkaardige manier opgebouwd als een figuur en gebruikt dezelfde plaatsingsopties als hierboven. Het belangrijkste verschil is dat de \textit{caption} bij een tabel conventioneel \textbf{boven} de tabel staat, in plaats van er onder zoals bij een figuur. Voor mooiere lijnen dan de standaard '\textit{\textbackslash hline}' maak ik gebruik van het pakket '\textit{booktabs}' (\texttt{\textbackslash usepackage\{booktabs\}}), met de commando's '\textit{\textbackslash toprule}', '\textit{\textbackslash midrule}' en '\textit{\textbackslash bottomrule}'.
+
+\begin{table}[H]
+    \centering
+    \captionsetup{width=0.8\textwidth}
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Component} & \textbf{Waarde} & \textbf{Eenheid} \\
+        \midrule
+        Weerstand & 220 & $\Omega$ \\
+        Condensator & 100 & nF \\
+        Voeding & 3.3 & V \\
+        \bottomrule
+    \end{tabular}
+    \caption[Voorbeeld tabel (naam voor lijst van tabellen)]{Dit is een tabel als voorbeeld}
+    \label{tab:VoorbeeldTabel}
+\end{table}
+
+\paragraph{\IfLanguageName{dutch}{Codefragmenten}{}}%
+\label{ssec:codefragmenten}
+
+Codefragmenten zijn gelijkaardig opgebouwd als figuren (Codefragment \ref{cf:VoorbeeldCodefragment}).
+
+\begin{listing}[H]
+    \begin{minted}[fontsize=\footnotesize, breaklines, baselinestretch=0.95]{Python}
+        def test(self) -> int:
+        print('Hello World')
+        return
+    \end{minted}
+    \caption[Voorbeeld codefragment]{Dit is een codefragment als voorbeeld}
+    \label{cf:VoorbeeldCodefragment}
+\end{listing}
+
